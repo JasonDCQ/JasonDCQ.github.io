@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-11T07:37:09.807Z</updated>
+  <updated>2020-04-11T09:17:23.878Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>认识Vuejs</title>
+    <link href="http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/"/>
+    <id>http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/</id>
+    <published>2020-04-11T08:46:00.000Z</published>
+    <updated>2020-04-11T09:17:23.878Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="为什么学习Vuejs？"><a href="#为什么学习Vuejs？" class="headerlink" title="为什么学习Vuejs？"></a>为什么学习Vuejs？</h3><p>&nbsp;&nbsp;我相信每个人学习Vue的目的是各不相同的，可能你的公司正要将原有的项目使用Vue进行重构，也可能是你的公司新项目决定使用Vue的技术栈，当然如果你现在正在换工作，你会发现招聘前端的需求中10个有8个都对Vue有或多或少的要求，由此可见前端开发掌握Vuejs已是必备技能。</p><h3 id="简单认识Vuejs"><a href="#简单认识Vuejs" class="headerlink" title="简单认识Vuejs"></a>简单认识Vuejs</h3><p>&nbsp;&nbsp;Vue读作/vju:/是一个渐进式的框架，意味着你可以将Vue作为你应用的一部分嵌入其中，带来更丰富的交互体验，也可以使用Vue核心库及其生态系统，core+Vue-router+Vuex满足你各种各样的业务需求。</p><ul><li>Vue有哪些特定<br>&nbsp;&nbsp;1.解耦视图和数据；<br>&nbsp;&nbsp;2.可复用的组件；<br>&nbsp;&nbsp;3.前端路由技术；<br>&nbsp;&nbsp;4.状态管理；<br>&nbsp;&nbsp;5.虚拟DOM；</li></ul><h3 id="Vuejs安装"><a href="#Vuejs安装" class="headerlink" title="Vuejs安装"></a>Vuejs安装</h3><ul><li>方式一：直接CDN引入<br>&nbsp;&nbsp;* 你可以选择引入开发环境版本还是生产环境版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt; </span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li><li>方式二：下载和引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开发环境 https:&#x2F;&#x2F;vuejs.org&#x2F;js&#x2F;vue.js </span><br><span class="line">生产环境 https:&#x2F;&#x2F;vuejs.org&#x2F;js&#x2F;vue.min.js</span><br></pre></td></tr></table></figure></li><li>方式三 NPM方式安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;为什么学习Vuejs？&quot;&gt;&lt;a href=&quot;#为什么学习Vuejs？&quot; class=&quot;headerlink&quot; title=&quot;为什么学习Vuejs？&quot;&gt;&lt;/a&gt;为什么学习Vuejs？&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;我相信每个人学习Vue的目的是各不相同的，可
+      
+    
+    </summary>
+    
+    
+      <category term="Vue学习" scheme="http://yoursite.com/categories/Vue%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Vuejs" scheme="http://yoursite.com/tags/Vuejs/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
