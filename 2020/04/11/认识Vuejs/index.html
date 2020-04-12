@@ -29,7 +29,7 @@
 <meta property="og:description" content="为什么学习Vuejs？&amp;nbsp;&amp;nbsp;我相信每个人学习Vue的目的是各不相同的，可能你的公司正要将原有的项目使用Vue进行重构，也可能是你的公司新项目决定使用Vue的技术栈，当然如果你现在正在换工作，你会发现招聘前端的需求中10个有8个都对Vue有或多或少的要求，由此可见前端开发掌握Vuejs已是必备技能。 简单认识Vuejs&amp;nbsp;&amp;nbsp;Vue读作&#x2F;vju:&#x2F;是一个渐进式的框架">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-11T08:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-11T09:17:23.878Z">
+<meta property="article:modified_time" content="2020-04-11T12:45:26.479Z">
 <meta property="article:author" content="JasonD">
 <meta property="article:tag" content="Vuejs">
 <meta name="twitter:card" content="summary">
@@ -75,9 +75,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
               </a>
             </li>
         
@@ -89,9 +89,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
               </a>
             </li>
         
@@ -103,7 +103,7 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/JasonDCQ" target="_blank" >
+              <a href="https://weibo.com/6301617838/profile?topnav=1&wvr=6&is_all=1" target="_blank" >
                 <i class="icon icon-lg icon-weibo"></i>
                 微博
               </a>
@@ -195,9 +195,9 @@
 <li>Vue有哪些特定<br>&nbsp;&nbsp;1.解耦视图和数据；<br>&nbsp;&nbsp;2.可复用的组件；<br>&nbsp;&nbsp;3.前端路由技术；<br>&nbsp;&nbsp;4.状态管理；<br>&nbsp;&nbsp;5.虚拟DOM；</li>
 </ul>
 <h3 id="Vuejs安装"><a href="#Vuejs安装" class="headerlink" title="Vuejs安装"></a>Vuejs安装</h3><ul>
-<li>方式一：直接CDN引入<br>&nbsp;&nbsp;* 你可以选择引入开发环境版本还是生产环境版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt; </span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
-<li>方式二：下载和引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开发环境 https:&#x2F;&#x2F;vuejs.org&#x2F;js&#x2F;vue.js </span><br><span class="line">生产环境 https:&#x2F;&#x2F;vuejs.org&#x2F;js&#x2F;vue.min.js</span><br></pre></td></tr></table></figure></li>
-<li>方式三 NPM方式安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure></li>
+<li>方式一：直接CDN引入<br>&nbsp;&nbsp;* 你可以选择引入开发环境版本还是生产环境版本<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt; </span><br><span class="line">&lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>npm/vue<span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>方式二：下载和引入<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开发环境 https:<span class="comment">//vuejs.org/js/vue.js </span></span><br><span class="line">生产环境 https:<span class="comment">//vuejs.org/js/vue.min.js</span></span><br></pre></td></tr></table></figure></li>
+<li>方式三 NPM方式安装<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure></li>
 </ul>
 
         </div>
@@ -207,7 +207,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-11T09:17:23.878Z" itemprop="dateUpdated">2020-04-11 17:17:23</time>
+    最后更新时间：<time datetime="2020-04-11T12:45:26.479Z" itemprop="dateUpdated">2020-04-11 20:45:26</time>
 </span><br>
 
 
