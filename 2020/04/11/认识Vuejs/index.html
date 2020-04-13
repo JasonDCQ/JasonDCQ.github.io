@@ -14,25 +14,32 @@
     
     
     
-    <title>认识Vuejs | Jason&#39;s Blog | 丁昌乾_技术博客</title>
+    <title>Vuejs快速学习系列(一)   Vue初体验与MVVM | Jason&#39;s Blog | 丁昌乾_技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Vuejs">
-    <meta name="description" content="为什么学习Vuejs？&amp;nbsp;&amp;nbsp;我相信每个人学习Vue的目的是各不相同的，可能你的公司正要将原有的项目使用Vue进行重构，也可能是你的公司新项目决定使用Vue的技术栈，当然如果你现在正在换工作，你会发现招聘前端的需求中10个有8个都对Vue有或多或少的要求，由此可见前端开发掌握Vuejs已是必备技能。 简单认识Vuejs&amp;nbsp;&amp;nbsp;Vue读作&#x2F;vju:&#x2F;是一个渐进式的框架">
+    <meta name="description" content="简单认识VuejsVue读作&#x2F;vju:&#x2F;是一个渐进式的框架，这意味着你可以将Vue作为你应用的一部分嵌入其中，也可以使用Vue核心库及其生态系统，Core+Vue-router+Vuex实现各种各样的业务需求，带来更丰富的交互体验。  Vue的特点  1.解耦视图和数据；2.可复用组件；3.前端路由技术；4.状态管理；5.虚拟DOM； Hello Vuejs我们来编写我们的第一个Vue程序，体验一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="认识Vuejs">
+<meta property="og:title" content="Vuejs快速学习系列(一)   Vue初体验与MVVM">
 <meta property="og:url" content="http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="为什么学习Vuejs？&amp;nbsp;&amp;nbsp;我相信每个人学习Vue的目的是各不相同的，可能你的公司正要将原有的项目使用Vue进行重构，也可能是你的公司新项目决定使用Vue的技术栈，当然如果你现在正在换工作，你会发现招聘前端的需求中10个有8个都对Vue有或多或少的要求，由此可见前端开发掌握Vuejs已是必备技能。 简单认识Vuejs&amp;nbsp;&amp;nbsp;Vue读作&#x2F;vju:&#x2F;是一个渐进式的框架">
+<meta property="og:description" content="简单认识VuejsVue读作&#x2F;vju:&#x2F;是一个渐进式的框架，这意味着你可以将Vue作为你应用的一部分嵌入其中，也可以使用Vue核心库及其生态系统，Core+Vue-router+Vuex实现各种各样的业务需求，带来更丰富的交互体验。  Vue的特点  1.解耦视图和数据；2.可复用组件；3.前端路由技术；4.状态管理；5.虚拟DOM； Hello Vuejs我们来编写我们的第一个Vue程序，体验一">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/img_1.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/img_2.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/img_3.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/img_4.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/img_5.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/img_6.png">
 <meta property="article:published_time" content="2020-04-11T08:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-11T12:45:26.479Z">
+<meta property="article:modified_time" content="2020-04-13T13:40:56.101Z">
 <meta property="article:author" content="JasonD">
 <meta property="article:tag" content="Vuejs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.dcq.kuryun.cn/vue/img/img_1.png">
     
         <link rel="alternate" type="application/atom+xml" title="Jason&#39;s Blog" href="/atom.xml">
     
@@ -120,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">认识Vuejs</div>
+        <div class="flex-col header-title ellipsis">Vuejs快速学习系列(一)   Vue初体验与MVVM</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,7 +149,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">认识Vuejs</h1>
+        <h1 class="title">Vuejs快速学习系列(一)   Vue初体验与MVVM</h1>
         <h5 class="subtitle">
             
                 <time datetime="2020-04-11T08:46:00.000Z" itemprop="datePublished" class="page-time">
@@ -150,7 +157,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Vue%E5%AD%A6%E4%B9%A0/">Vue学习</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">Vuejs快速学习系列</a></li></ul>
 
             
         </h5>
@@ -167,7 +174,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么学习Vuejs？"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么学习Vuejs？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单认识Vuejs"><span class="post-toc-number">2.</span> <span class="post-toc-text">简单认识Vuejs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vuejs安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">Vuejs安装</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单认识Vuejs"><span class="post-toc-number">1.</span> <span class="post-toc-text">简单认识Vuejs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hello-Vuejs"><span class="post-toc-number">2.</span> <span class="post-toc-text">Hello Vuejs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue列表显示"><span class="post-toc-number">3.</span> <span class="post-toc-text">Vue列表显示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue中的MVVM"><span class="post-toc-number">4.</span> <span class="post-toc-text">Vue中的MVVM</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue的options"><span class="post-toc-number">5.</span> <span class="post-toc-text">Vue的options</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue的生命周期"><span class="post-toc-number">6.</span> <span class="post-toc-text">Vue的生命周期</span></a></li></ol>
         </nav>
     </aside>
 
@@ -176,12 +183,12 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">认识Vuejs</h1>
+        <h1 class="post-card-title">Vuejs快速学习系列(一)   Vue初体验与MVVM</h1>
         <div class="post-meta">
             <time class="post-time" title="2020-04-11 16:46:00" datetime="2020-04-11T08:46:00.000Z"  itemprop="datePublished">2020-04-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Vue%E5%AD%A6%E4%B9%A0/">Vue学习</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">Vuejs快速学习系列</a></li></ul>
 
 
 
@@ -189,16 +196,89 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="为什么学习Vuejs？"><a href="#为什么学习Vuejs？" class="headerlink" title="为什么学习Vuejs？"></a>为什么学习Vuejs？</h3><p>&nbsp;&nbsp;我相信每个人学习Vue的目的是各不相同的，可能你的公司正要将原有的项目使用Vue进行重构，也可能是你的公司新项目决定使用Vue的技术栈，当然如果你现在正在换工作，你会发现招聘前端的需求中10个有8个都对Vue有或多或少的要求，由此可见前端开发掌握Vuejs已是必备技能。</p>
-<h3 id="简单认识Vuejs"><a href="#简单认识Vuejs" class="headerlink" title="简单认识Vuejs"></a>简单认识Vuejs</h3><p>&nbsp;&nbsp;Vue读作/vju:/是一个渐进式的框架，意味着你可以将Vue作为你应用的一部分嵌入其中，带来更丰富的交互体验，也可以使用Vue核心库及其生态系统，core+Vue-router+Vuex满足你各种各样的业务需求。</p>
+            <h3 id="简单认识Vuejs"><a href="#简单认识Vuejs" class="headerlink" title="简单认识Vuejs"></a>简单认识Vuejs</h3><p>Vue读作/vju:/是一个渐进式的框架，这意味着你可以将Vue作为你应用的一部分嵌入其中，也可以使用Vue核心库及其生态系统，Core+Vue-router+Vuex实现各种各样的业务需求，带来更丰富的交互体验。</p>
 <ul>
-<li>Vue有哪些特定<br>&nbsp;&nbsp;1.解耦视图和数据；<br>&nbsp;&nbsp;2.可复用的组件；<br>&nbsp;&nbsp;3.前端路由技术；<br>&nbsp;&nbsp;4.状态管理；<br>&nbsp;&nbsp;5.虚拟DOM；</li>
+<li>Vue的特点</li>
 </ul>
-<h3 id="Vuejs安装"><a href="#Vuejs安装" class="headerlink" title="Vuejs安装"></a>Vuejs安装</h3><ul>
-<li>方式一：直接CDN引入<br>&nbsp;&nbsp;* 你可以选择引入开发环境版本还是生产环境版本<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt; </span><br><span class="line">&lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>npm/vue<span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>方式二：下载和引入<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开发环境 https:<span class="comment">//vuejs.org/js/vue.js </span></span><br><span class="line">生产环境 https:<span class="comment">//vuejs.org/js/vue.min.js</span></span><br></pre></td></tr></table></figure></li>
-<li>方式三 NPM方式安装<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure></li>
+<p>1.解耦视图和数据；<br>2.可复用组件；<br>3.前端路由技术；<br>4.状态管理；<br>5.虚拟DOM；</p>
+<h3 id="Hello-Vuejs"><a href="#Hello-Vuejs" class="headerlink" title="Hello Vuejs"></a>Hello Vuejs</h3><p>我们来编写我们的第一个Vue程序，体验一下Vue的响应式，截取代码如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/img_1.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+<p>代码做了什么事情？我们来阅读JavaScript代码，会发现创建了一个Vue对象,在创建Vue对象的时候，传入了一些、<code>options：{}</code>，<code>{}</code>中包含了el属性：该属性决定了这个Vue对象挂载到哪一个元素上，很明显，我们这里是挂载到了id为app的元素上,<code>{}</code>中包含了data属性,该属性中通常会存储一些数据,这些数据可以是我们直接定义出来的，比如像上面这样;也可能是来自网络，从服务器加载的。当浏览器执行到10~13行代码显然出对应的HTML，执行第16行代码创建Vue实例，并且对原HTML进行解析和修改。</p>
+<h3 id="Vue列表显示"><a href="#Vue列表显示" class="headerlink" title="Vue列表显示"></a>Vue列表显示</h3><p>现在，我们来展示一个更加复杂的数据：数据列表；当我们现在从服务器请求过来一个列表，希望展示到<code>html</code>中，截取代码如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/img_2.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/img_3.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+<p>在<code>html</code>代码中，使用<code>v-for</code>指令,是不是变得So Easy，我们再也不需要在JavaScript代码中完成DOM的拼接相关操作了。而且，它还是响应式的，当我们数组中的数据发生改变时，界面会自动改变。</p>
+<h3 id="Vue中的MVVM"><a href="#Vue中的MVVM" class="headerlink" title="Vue中的MVVM"></a>Vue中的MVVM</h3><p>我们来看Vue的MVVM，图示如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/img_4.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<blockquote>
+<p>View层：</p>
+<blockquote>
+<p>视图层<br>在我们前端开发中，通常就是DOM层<br>主要的作用是给用户展示各种信息</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Model层:</p>
+<blockquote>
+<p>数据层<br>数据可能是我们固定的死数据，更多的是来自我们服务器，从网络上请求下来的数据</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>VueModel层：</p>
+<blockquote>
+<p>视图模型层<br>视图模型层是View和Model沟通的桥梁<br>一方面它实现了Data Binding，也就是数据绑定，将Model的改变实时的反应到View中<br>另一方面它实现了DOM Listener，也就是DOM监听，当DOM发生一些事件(点击、滚动、touch等)时，可以监听到，并在需要的情况下改变对应的Data</p>
+</blockquote>
+</blockquote>
+<h3 id="Vue的options"><a href="#Vue的options" class="headerlink" title="Vue的options"></a>Vue的options</h3><p>我们在创建Vue实例的时候，传入了一个对象<code>options</code>，这个options中可以包含哪些选项呢？一般开发中主要掌握以下几点：</p>
+<ul>
+<li>el：<br>  1、类型：string | HTMLElement<br> 2、作用：决定之后Vue实例会管理哪一个DOM</li>
+<li>data：<br> 1、类型：Object | Function （组件当中data必须是一个函数）<br> 2、作用：Vue实例对应的数据对象</li>
+<li>methods：<br> 1、类型：{ [key: string]: Function }<br> 2、作用：定义属于Vue的一些方法，可以在其他地方调用，也可以在指令中使用</li>
 </ul>
+<h3 id="Vue的生命周期"><a href="#Vue的生命周期" class="headerlink" title="Vue的生命周期"></a>Vue的生命周期</h3><p>生命周期流程图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/img_5.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/img_6.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+
+
 
         </div>
 
@@ -207,7 +287,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-11T12:45:26.479Z" itemprop="dateUpdated">2020-04-11 20:45:26</time>
+    最后更新时间：<time datetime="2020-04-13T13:40:56.101Z" itemprop="dateUpdated">2020-04-13 21:40:56</time>
 </span><br>
 
 
@@ -241,7 +321,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《认识Vuejs》 — Jason's Blog&pic=http://yoursite.com/img/avatar.jpeg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《Vuejs快速学习系列(一)   Vue初体验与MVVM》 — Jason's Blog&pic=http://yoursite.com/img/avatar.jpeg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -251,7 +331,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《认识Vuejs》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《Vuejs快速学习系列(一)   Vue初体验与MVVM》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -261,7 +341,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《认识Vuejs》 — Jason's Blog&url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vuejs快速学习系列(一)   Vue初体验与MVVM》 — Jason's Blog&url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -286,16 +366,16 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
   
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2020/04/08/hello-world/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/13/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Vuejs快速学习系列(二)  基础语法</h4>
       </a>
     </div>
+  
+
   
 </nav>
 
@@ -384,7 +464,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《认识Vuejs》 — Jason's Blog&pic=http://yoursite.com/img/avatar.jpeg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《Vuejs快速学习系列(一)   Vue初体验与MVVM》 — Jason's Blog&pic=http://yoursite.com/img/avatar.jpeg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -394,7 +474,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《认识Vuejs》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&title=《Vuejs快速学习系列(一)   Vue初体验与MVVM》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -404,7 +484,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《认识Vuejs》 — Jason's Blog&url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vuejs快速学习系列(一)   Vue初体验与MVVM》 — Jason's Blog&url=http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
