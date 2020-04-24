@@ -5,9 +5,9 @@
   <subtitle>丁昌乾_技术博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2020-04-13T15:01:57.331Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://jasondcq.github.io/"/>
+  <updated>2020-04-24T13:21:21.516Z</updated>
+  <id>https://jasondcq.github.io/</id>
   
   <author>
     <name>JasonD</name>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac使用brew安装memcached、redis</title>
+    <link href="https://jasondcq.github.io/Mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85memcached/"/>
+    <id>https://jasondcq.github.io/Mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85memcached/</id>
+    <published>2020-04-24T06:13:00.000Z</published>
+    <updated>2020-04-24T13:21:21.516Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="HomeBrew的基本使用方法："><a href="#HomeBrew的基本使用方法：" class="headerlink" title="HomeBrew的基本使用方法："></a>HomeBrew的基本使用方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew search **  &#x2F;&#x2F;查找某个软件包</span><br><span class="line">brew list  &#x2F;&#x2F;列出已经安装的软件的包</span><br><span class="line">brew install ** &#x2F;&#x2F;安装某个软件包,默认安装的是稳定版本</span><br><span class="line">brew uninstall **&#x2F;&#x2F;卸载某个软件的包</span><br><span class="line">brew upgrade ** &#x2F;&#x2F;更新某个软件包</span><br><span class="line">brew info ** &#x2F;&#x2F;查看指定软件包的说明</span><br><span class="line">brew cache clean &#x2F;&#x2F;清理缓存</span><br></pre></td></tr></table></figure><h4 id="memcached安装"><a href="#memcached安装" class="headerlink" title="memcached安装"></a>memcached安装</h4><p>1、使用命令<code>brew info memcached</code>检查是否已安装memcached及其依赖包情况</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/mactool/img/img_1.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>2、如上图所示，<code>memcached</code>的依赖包为<code>libevent</code>，如果未安装<code>libevent</code>（会打个红色的X），则需要首先查看<code>libevent</code>安装的依赖包，检查<code>libevent</code>的依赖包是否安装，使用命令<code>brew info libevent</code>:</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/mactool/img/img_2.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>3、未安装的依赖会打一个红色的X，安装打X依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install doxygen</span><br><span class="line">brew install libtool</span><br></pre></td></tr></table></figure><p>4、依赖包安装完后</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install libevent</span><br><span class="line">brew install memcached</span><br></pre></td></tr></table></figure><p>5、安装完成，启动服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;启动</span><br><span class="line">brew services start memcached</span><br><span class="line">&#x2F;&#x2F;停止</span><br><span class="line">brew services stop memcached</span><br><span class="line">&#x2F;&#x2F;重启</span><br><span class="line">brew services restart memcached</span><br><span class="line">&#x2F;&#x2F;查看所有运行的服务</span><br><span class="line">brew services list</span><br></pre></td></tr></table></figure><h4 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h4><p>1、安装包管理器最新版本<code>brew install redis</code></p><p>2、安装指定版本<code>brew install redis@4.0</code></p><p>3、<code>/usr/local/etc</code> 下修改<code>redis.config</code><br>找到<code>daemonize no</code> 改成<code>yes</code>以守护进程的方式启动配置环境变量echo ‘export PATH=”/usr/local/opt/redis@3.2/bin:$PATH”‘ &gt;&gt; ~/.zshrc</p><p>4、启动:<code>brew services start redis</code>或者使用<code>redis-server /usr/local/etc/redis.conf</code>启动</p><p>5、查看进程<code>ps axu | grep redis</code></p><p>6、关闭<code>redis-cli shutdown</code></p><p>7、杀死<code>sudo pkill redis-server</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;HomeBrew的基本使用方法：&quot;&gt;&lt;a href=&quot;#HomeBrew的基本使用方法：&quot; class=&quot;headerlink&quot; title=&quot;HomeBrew的基本使用方法：&quot;&gt;&lt;/a&gt;HomeBrew的基本使用方法：&lt;/h4&gt;&lt;figure class=&quot;hi
+      
+    
+    </summary>
+    
+    
+      <category term="mac工具" scheme="https://jasondcq.github.io/categories/mac%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="mac工具" scheme="https://jasondcq.github.io/tags/mac%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vuejs快速学习系列(三)  组件化开发</title>
-    <link href="http://yoursite.com/2020/04/13/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%89-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/"/>
-    <id>http://yoursite.com/2020/04/13/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%89-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</id>
-    <published>2020-04-13T11:41:15.000Z</published>
-    <updated>2020-04-13T15:01:57.331Z</updated>
+    <link href="https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%89-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/"/>
+    <id>https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%89-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</id>
+    <published>2020-04-13T11:41:00.000Z</published>
+    <updated>2020-04-23T12:38:24.067Z</updated>
     
     <content type="html"><![CDATA[<h3 id="认识组件化"><a href="#认识组件化" class="headerlink" title="认识组件化"></a>认识组件化</h3><h4 id="什么是组件化？"><a href="#什么是组件化？" class="headerlink" title="什么是组件化？"></a>什么是组件化？</h4><p>如果我们将一个页面中所有的处理逻辑全部放在一起，处理起来就会变得非常复杂，而且不利于后续的管理以及扩展，但如果我们将一个页面拆分成一个个小的功能块，每个功能块完成属于自己这部分独立的功能，那么之后整个页面的管理和维护就变得非常容易了，这就是组件化的思想。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/cpnimg_1_1.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><h4 id="Vue组件化思想"><a href="#Vue组件化思想" class="headerlink" title="Vue组件化思想"></a>Vue组件化思想</h4><p>组件化是Vue.js中的重要思想,它提供了一种抽象，让我们可以开发出一个个独立可复用的小组件来构造我们的应用,任何的应用都会被抽象成一颗组件树</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/cpnimg_2.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>有了组件化的思想，我们在之后的开发中就要充分的利用它,尽可能的将页面拆分成一个个小的、可复用的组件,这样让我们的代码更加方便组织和管理，并且扩展性也更强。</p><h3 id="注册组件"><a href="#注册组件" class="headerlink" title="注册组件"></a>注册组件</h3><h4 id="注册组件的基本步骤"><a href="#注册组件的基本步骤" class="headerlink" title="注册组件的基本步骤"></a>注册组件的基本步骤</h4><ul><li>组件的使用分成三个步骤<br>1、创建组件构造器<br>2、注册组件<br>3、使用组件</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/cpn/img_3.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>我们来看看通过代码如何注册组件，和直接使用一个<code>div</code>看起来并没有什么区别，但是我们可以设想，如果很多地方都要显示这样的信息，我们是不是就可以直接使用<code>&lt;my-cpn&gt;&lt;/my-cpn&gt;</code>来完成呢？</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/cpn/img_4.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure>]]></content>
     
@@ -35,13 +61,17 @@
     </summary>
     
     
+      <category term="Vuejs快速学习系列" scheme="https://jasondcq.github.io/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
+    
+    
+      <category term="Vuejs" scheme="https://jasondcq.github.io/tags/Vuejs/"/>
     
   </entry>
   
   <entry>
     <title>Vuejs快速学习系列(二)  基础语法</title>
-    <link href="http://yoursite.com/2020/04/13/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-    <id>http://yoursite.com/2020/04/13/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</id>
+    <link href="https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    <id>https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</id>
     <published>2020-04-13T08:18:00.000Z</published>
     <updated>2020-04-13T13:40:56.100Z</updated>
     
@@ -57,17 +87,17 @@
     </summary>
     
     
-      <category term="Vuejs快速学习系列" scheme="http://yoursite.com/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
+      <category term="Vuejs快速学习系列" scheme="https://jasondcq.github.io/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
     
     
-      <category term="Vuejs" scheme="http://yoursite.com/tags/Vuejs/"/>
+      <category term="Vuejs" scheme="https://jasondcq.github.io/tags/Vuejs/"/>
     
   </entry>
   
   <entry>
     <title>Vuejs快速学习系列(一)   Vue初体验与MVVM</title>
-    <link href="http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/"/>
-    <id>http://yoursite.com/2020/04/11/%E8%AE%A4%E8%AF%86Vuejs/</id>
+    <link href="https://jasondcq.github.io/%E8%AE%A4%E8%AF%86Vuejs/"/>
+    <id>https://jasondcq.github.io/%E8%AE%A4%E8%AF%86Vuejs/</id>
     <published>2020-04-11T08:46:00.000Z</published>
     <updated>2020-04-13T13:40:56.101Z</updated>
     
@@ -83,10 +113,10 @@
     </summary>
     
     
-      <category term="Vuejs快速学习系列" scheme="http://yoursite.com/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
+      <category term="Vuejs快速学习系列" scheme="https://jasondcq.github.io/categories/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
     
     
-      <category term="Vuejs" scheme="http://yoursite.com/tags/Vuejs/"/>
+      <category term="Vuejs" scheme="https://jasondcq.github.io/tags/Vuejs/"/>
     
   </entry>
   
