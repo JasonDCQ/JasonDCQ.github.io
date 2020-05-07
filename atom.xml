@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jasondcq.github.io/"/>
-  <updated>2020-05-07T15:39:30.923Z</updated>
+  <updated>2020-05-07T15:48:52.504Z</updated>
   <id>https://jasondcq.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vuejs快速学习系列(六) Vuex详解</title>
+    <link href="https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E5%85%AD-Vuex%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E5%85%AD-Vuex%E8%AF%A6%E8%A7%A3/</id>
+    <published>2020-05-07T15:43:00.000Z</published>
+    <updated>2020-05-07T15:48:52.504Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="认识Vuex"><a href="#认识Vuex" class="headerlink" title="认识Vuex"></a>认识Vuex</h3><h4 id="Vuex是做什么的"><a href="#Vuex是做什么的" class="headerlink" title="Vuex是做什么的?"></a>Vuex是做什么的?</h4><p>官方解释：<code>Vuex</code> 是一个专为 <code>Vue.js</code> 应用程序开发的状态管理模式</p><ul><li>它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</li><li><code>Vuex</code> 也集成到 <code>Vue</code> 的官方调试工具 <code>devtools</code> <code>extension</code>，提供了诸如零配置的 <code>time-travel</code> 调试、状态快照导入导出等高级调试功能</li></ul><p>状态管理到底是什么？</p><ul><li>状态管理模式、集中式存储管理这些名词听起来就非常高大上，让人捉摸不透，其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面，然后，将这个对象放在顶层的<code>Vue</code>实例中，让其他组件可以使用，那么，多个组件是不是就可以共享这个对象中的所有变量属性了呢？等等，如果是这样的话，为什么官方还要专门出一个插件<code>Vuex</code>呢？难道我们不能自己封装一个对象来管理吗？当然可以，只是我们要先想想<code>VueJS</code>带给我们最大的便利是什么呢？没错，就是响应式，如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些，不用怀疑，<code>Vuex</code>就是为了提供这样一个在多个组件间共享状态的插件，用它就可以了。</li></ul><h4 id="管理什么状态呢"><a href="#管理什么状态呢" class="headerlink" title="管理什么状态呢?"></a>管理什么状态呢?</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;认识Vuex&quot;&gt;&lt;a href=&quot;#认识Vuex&quot; class=&quot;headerlink&quot; title=&quot;认识Vuex&quot;&gt;&lt;/a&gt;认识Vuex&lt;/h3&gt;&lt;h4 id=&quot;Vuex是做什么的&quot;&gt;&lt;a href=&quot;#Vuex是做什么的&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+    
+      <category term="Vuejs" scheme="https://jasondcq.github.io/categories/Vuejs/"/>
+    
+    
+      <category term="Vuejs" scheme="https://jasondcq.github.io/tags/Vuejs/"/>
+    
+  </entry>
   
   <entry>
     <title>Vuejs快速学习系列(五) vue-router详解</title>
