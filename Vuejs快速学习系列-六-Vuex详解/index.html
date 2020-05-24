@@ -28,11 +28,18 @@
 <meta property="og:site_name" content="Jason&#39;s Blog">
 <meta property="og:description" content="认识VuexVuex是做什么的?官方解释：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式  它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化 Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能  状态管理到底是什么？  状态管">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_1.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_2.jpg">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_3.png">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_4.jpg">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_5.jpg">
+<meta property="og:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_6.jpg">
 <meta property="article:published_time" content="2020-05-07T15:43:00.000Z">
-<meta property="article:modified_time" content="2020-05-07T15:52:21.161Z">
+<meta property="article:modified_time" content="2020-05-08T03:03:46.495Z">
 <meta property="article:author" content="JasonD">
 <meta property="article:tag" content="Vuejs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.dcq.kuryun.cn/vue/img/vuex/img_1.png">
     
         <link rel="alternate" type="application/atom+xml" title="Jason&#39;s Blog" href="/atom.xml">
     
@@ -167,7 +174,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#认识Vuex"><span class="post-toc-number">1.</span> <span class="post-toc-text">认识Vuex</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Vuex是做什么的"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Vuex是做什么的?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#管理什么状态呢"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">管理什么状态呢?</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#认识Vuex"><span class="post-toc-number">1.</span> <span class="post-toc-text">认识Vuex</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Vuex是做什么的"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Vuex是做什么的?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#管理什么状态呢"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">管理什么状态呢?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单界面的状态管理"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">单界面的状态管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单界面状态管理的实现"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">单界面状态管理的实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多界面状态管理"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">多界面状态管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Vuex状态管理图例"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Vuex状态管理图例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vuex的基本使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">Vuex的基本使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简单的案例"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">简单的案例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#挂载到Vue实例中"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">挂载到Vue实例中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用Vuex的count"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用Vuex的count</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -198,7 +205,109 @@
 <ul>
 <li>状态管理模式、集中式存储管理这些名词听起来就非常高大上，让人捉摸不透，其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面，然后，将这个对象放在顶层的<code>Vue</code>实例中，让其他组件可以使用，那么，多个组件是不是就可以共享这个对象中的所有变量属性了呢？等等，如果是这样的话，为什么官方还要专门出一个插件<code>Vuex</code>呢？难道我们不能自己封装一个对象来管理吗？当然可以，只是我们要先想想<code>VueJS</code>带给我们最大的便利是什么呢？没错，就是响应式，如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些，不用怀疑，<code>Vuex</code>就是为了提供这样一个在多个组件间共享状态的插件，用它就可以了。</li>
 </ul>
-<h4 id="管理什么状态呢"><a href="#管理什么状态呢" class="headerlink" title="管理什么状态呢?"></a>管理什么状态呢?</h4>
+<h4 id="管理什么状态呢"><a href="#管理什么状态呢" class="headerlink" title="管理什么状态呢?"></a>管理什么状态呢?</h4><p>有什么状态时需要我们在多个组件间共享的呢？如果你做过大型开发，你一定遇到过多个状态，在多个界面间的共享问题，比如用户的登录状态、用户名称、头像、地理位置信息等等，比如商品的收藏、购物车中的物品等等，这些状态信息，我们都可以放在统一的地方，对它进行保存和管理，而且它们还是响应式的。</p>
+<h4 id="单界面的状态管理"><a href="#单界面的状态管理" class="headerlink" title="单界面的状态管理"></a>单界面的状态管理</h4><p>我们知道，要在单个组件中进行状态管理是一件非常简单的事情，什么意思呢？我们来看下面的图片：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_1.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<p>这图片中的三种东西，怎么理解呢？</p>
+<ul>
+<li><code>State</code>：不用多说，就是我们的状态。（你姑且可以当做就是<code>data</code>中的属性）</li>
+<li><code>View</code>：视图层，可以针对<code>State</code>的变化，显示不同的信息。（这个好理解吧？）</li>
+<li><code>Actions</code>：这里的<code>Actions</code>主要是用户的各种操作：点击、输入等等，会导致状态的改变</li>
+</ul>
+<h4 id="单界面状态管理的实现"><a href="#单界面状态管理的实现" class="headerlink" title="单界面状态管理的实现"></a>单界面状态管理的实现</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_2.jpg" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<ul>
+<li>在这个案例中，我们有木有状态需要管理呢？没错，就是个数<code>counter</code></li>
+<li><code>counter</code>需要某种方式被记录下来，也就是我们的<code>State</code></li>
+<li><code>counter</code>目前的值需要被显示在界面中，也就是我们的<code>View</code>部分</li>
+<li>界面发生某些操作时（我们这里是用户的点击，也可以是用户的<code>input</code>），需要去更新状态，也就是我们的<code>Actions</code></li>
+</ul>
+<h4 id="多界面状态管理"><a href="#多界面状态管理" class="headerlink" title="多界面状态管理"></a>多界面状态管理</h4><p>Vue已经帮我们做好了单个界面的状态管理，但是如果是多个界面呢？</p>
+<ul>
+<li>多个试图都依赖同一个状态（一个状态改了，多个界面需要进行更新）</li>
+<li>不同界面的<code>Actions</code>都想修改同一个状态（<code>Home.vue</code>需要修改，<code>Profile.vue</code>也需要修改这个状态）</li>
+</ul>
+<p>也就是说对于某些状态(状态1/状态2/状态3)来说只属于我们某一个试图，但是也有一些状态(状态a/状态b/状态c)属于多个试图共同想要维护的</p>
+<ul>
+<li>状态1/状态2/状态3你放在自己的房间中，你自己管理自己用，没问题</li>
+<li>但是状态a/状态b/状态c我们希望交给一个大管家来统一帮助我们管理！！！</li>
+<li>没错，Vuex就是为我们提供这个大管家的工具</li>
+</ul>
+<p>全局单例模式（大管家）</p>
+<ul>
+<li>我们现在要做的就是将共享的状态抽取出来，交给我们的大管家，统一进行管理</li>
+<li>之后，你们每个试图，按照我规定好的规定，进行访问和修改等操作</li>
+<li>这就是Vuex背后的基本思想</li>
+</ul>
+<h4 id="Vuex状态管理图例"><a href="#Vuex状态管理图例" class="headerlink" title="Vuex状态管理图例"></a>Vuex状态管理图例</h4><p>一起在来看一副官方给出的图片</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_3.png" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<h3 id="Vuex的基本使用"><a href="#Vuex的基本使用" class="headerlink" title="Vuex的基本使用"></a>Vuex的基本使用</h3><h4 id="简单的案例"><a href="#简单的案例" class="headerlink" title="简单的案例"></a>简单的案例</h4><p>首先，我们需要在某个地方存放我们的<code>Vuex</code>代码：</p>
+<ul>
+<li>这里，我们先创建一个文件夹<code>store</code>，并且在其中创建一个<code>index.js</code>文件</li>
+<li>在<code>index.js</code>文件中写入如下代码：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_4.jpg" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<h4 id="挂载到Vue实例中"><a href="#挂载到Vue实例中" class="headerlink" title="挂载到Vue实例中"></a>挂载到Vue实例中</h4><p>其次，我们让所有的<code>Vue</code>组件都可以使用这个<code>store</code>对象</p>
+<ul>
+<li>来到<code>main.js</code>文件，导入<code>store</code>对象，并且放在<code>new Vue</code>中</li>
+<li>这样，在其他<code>Vue</code>组件中，我们就可以通过<code>this.$store</code>的方式，获取到这个<code>store</code>对象了</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_5.jpg" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<h4 id="使用Vuex的count"><a href="#使用Vuex的count" class="headerlink" title="使用Vuex的count"></a>使用Vuex的count</h4><p>这就是使用<code>Vuex</code>最简单的方式了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_6.jpg" alt="avatar" title="">
+                </div>
+                <div class="image-caption">avatar</div>
+            </figure>
+
+<p>我们来对使用步骤，做一个简单的小节：</p>
+<p>1、提取出一个公共的<code>store</code>对象，用于保存在多个组件中共享的状态<br>2、将<code>store</code>对象放置在<code>new Vue</code>对象中，这样可以保证在所有的组件中都可以使用到<br>3、在其他组件中使用<code>store</code>对象中保存的状态即可</p>
+<ul>
+<li>通过<code>this.$store.state.</code>属性的方式来访问状态</li>
+<li>通过<code>this.$store.commit(&#39;mutation中方法&#39;)</code>来修改状态</li>
+</ul>
+<p>注意事项：</p>
+<ul>
+<li>我们通过提交<code>mutation</code>的方式，而非直接改变<code>store.state.count</code></li>
+<li>这是因为<code>Vuex</code>可以更明确的追踪状态的变化，所以不要直接改变<code>store.state.count</code>的值</li>
+</ul>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -206,7 +315,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-07T15:52:21.161Z" itemprop="dateUpdated">2020-05-07 23:52:21</time>
+    最后更新时间：<time datetime="2020-05-08T03:03:46.495Z" itemprop="dateUpdated">2020-05-08 11:03:46</time>
 </span><br>
 
 
@@ -285,7 +394,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Docker安装与启动</h4>
+      </a>
+    </div>
   
 
   

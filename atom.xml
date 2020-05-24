@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jasondcq.github.io/"/>
-  <updated>2020-05-07T15:52:21.161Z</updated>
+  <updated>2020-05-24T13:52:58.281Z</updated>
   <id>https://jasondcq.github.io/</id>
   
   <author>
@@ -17,13 +17,197 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes是什么</title>
+    <link href="https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/"/>
+    <id>https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/</id>
+    <published>2020-05-24T13:46:00.000Z</published>
+    <updated>2020-05-24T13:52:58.281Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Kubernetes是什么及作用"><a href="#Kubernetes是什么及作用" class="headerlink" title="Kubernetes是什么及作用"></a>Kubernetes是什么及作用</h4><p>Kubernetes(K8S)是Google在2014年发布的一个开源项目，用于自动化容器化应用程序的部署、扩展和管理。Kubernetes通常结合docker容器工作，并且整合多个运行着docker容器的主机集群。 官网地址<a href="https://Kubernetes.io中文社区" target="_blank" rel="noopener">https://Kubernetes.io中文社区</a> <a href="https://www.kubernetes.org.cn/docs" target="_blank" rel="noopener">https://www.kubernetes.org.cn/docs</a></p><p>Kubernetes的目标是让部署容器化的应用简单并且高效，Kubernetes一个核心特点就是能够自主的管理容器来保证云平台中的容器按照用户的期望运行。以下是Kubernetes相关特性：</p><ul><li>自动包装<br>根据资源需求和其他约束自动放置容器，同时不会牺牲可用性，混合关  键和最大努力的工作负载，以提高资源利用率并节省更多资源。</li><li>横向缩放<br>使用简单的命令或 UI，或者根据 CPU 的使用情况自动调整应用程序副本数。</li><li>自动部署和回滚<br>Kubernetes 逐渐部署对应用程序或其配置的更改，同时监视应用程序运行状况，以确保它不会同时终止所有实例。 如果出现问题，Kubernetes会为您恢复更改，利用日益增长的部署解决方案的生态系统。</li><li>存储编排<br>自动安装您所选择的存储系统，无论是本地存储，如公有云提供商 GCP 或 AWS, 还是网络存储系统 NFS,iSCSI, Gluster, Ceph, Cinder, 或 Flocker。</li><li>自我修复<br>重新启动失败的容器，在节点不可用时，替换和重新编排节点上的容器，终止不对用户定义的健康检查做出响应的容器，并且不会在客户端准备投放之前将其通告给客户端。</li><li>服务发现和负载均衡<br>不需要修改您的应用程序来使用不熟悉的服务发现机制，Kubernetes 为容器提供了自己的 IP 地址和一组容器的单个 DNS 名称，并可以在它们之间进行负载均衡。</li><li>密钥和配置管理<br>部署和更新密钥和应用程序配置，不会重新编译您的镜像，不会在堆栈配置中暴露密钥(secrets)。</li><li>批处理<br>除了服务之外，Kubernetes还可以管理您的批处理和 CI 工作负载，如果需要，替换出现故障的容器。</li></ul><h4 id="使用Kubernetes能做什么"><a href="#使用Kubernetes能做什么" class="headerlink" title="使用Kubernetes能做什么"></a>使用Kubernetes能做什么</h4><p>Kubernetes是一个全新的基于容器技术的分布式架构领先方案（源于Brog，是google十几年经验的结晶）；<br>Kubernetes是一个开放的开发平台（无侵入性，现有系统很容器迁移到Kubernetes上）；Kubernetes是一个完备的分布式系统支撑平台（完善的集群管理能力）</p><p>使用Kubernetes可以在物理或虚拟机的Kubernetes集群上运行容器化应用，Kubernetes能够提供一个以容器为中心的基础架构，满足在生产环境中运行应用的一些常见需求，如:</p><ul><li>多个进程协同工作</li><li>存储系统挂载</li><li>Distributing secrets</li><li>应用健康检测</li><li>应用实例的复制</li><li>Pod自动伸缩/扩展</li><li>Naming and discovering</li><li>负载均衡</li><li>滚动更新</li><li>资源监控</li><li>日志访问</li><li>调度应用程序</li><li>提供认证和授权</li></ul><h4 id="为什么使用Kubernetes"><a href="#为什么使用Kubernetes" class="headerlink" title="为什么使用Kubernetes"></a>为什么使用Kubernetes</h4><p>使用Kubernetes最直接的感受就是我们可以轻装上阵的开发复杂的系统了；其次Kubernetes是在全面拥抱微服务架构（微服务的核心就是将一个巨大的单体应用拆分成很多小的互相连接的微服务，一个微服务后面可能是多个实例副本在支撑，副本数量可以随着系统负荷的变化而动态调整）；最后Kubernetes系统架构具备超强的横向扩展能力。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Kubernetes是什么及作用&quot;&gt;&lt;a href=&quot;#Kubernetes是什么及作用&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes是什么及作用&quot;&gt;&lt;/a&gt;Kubernetes是什么及作用&lt;/h4&gt;&lt;p&gt;Kubernetes(K8S
+      
+    
+    </summary>
+    
+    
+      <category term="k8s" scheme="https://jasondcq.github.io/categories/k8s/"/>
+    
+    
+      <category term="k8s" scheme="https://jasondcq.github.io/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker私有仓库构建</title>
+    <link href="https://jasondcq.github.io/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%9E%84%E5%BB%BA/"/>
+    <id>https://jasondcq.github.io/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%9E%84%E5%BB%BA/</id>
+    <published>2020-05-24T13:33:00.000Z</published>
+    <updated>2020-05-24T13:37:26.829Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="私有仓库搭建与配置"><a href="#私有仓库搭建与配置" class="headerlink" title="私有仓库搭建与配置"></a>私有仓库搭建与配置</h4><p>1、拉取私有仓库镜像（此步省略）<br>命令：<code>docker pull registry</code></p><p>2、启动私有仓库容器<br>命令：<code>docker run -di --name=registry -p 5000:5000 registry</code></p><p>3、打开浏览器 输入地址<a href="http://192.168.184.141:5000/v2/_catalog看到" target="_blank" rel="noopener">http://192.168.184.141:5000/v2/_catalog看到</a> {“repositories”:[]} 表示私有仓库搭建成功并且内容为空</p><p>4、修改daemon.json<br>命令：<code>{&quot;insecure-registries&quot;:[&quot;192.168.184.141:5000&quot;]}</code><br>此步用于让 docker信任私有仓库地址</p><p>5、重启docker 服务<br>命令：<code>systemctl restart docker</code></p><h4 id="镜像上传至私有仓库"><a href="#镜像上传至私有仓库" class="headerlink" title="镜像上传至私有仓库"></a>镜像上传至私有仓库</h4><p>1、标记此镜像为私有仓库的镜像<br>命令：<code>docker tag jdk1.8 192.168.184.141:5000/jdk1.8</code></p><p>2、再次启动私服容器<br>命令：<code>docker start registry</code></p><p>3、上传标记的镜像<br>命令：<code>docker push 192.168.184.141:5000/jdk1.8</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;私有仓库搭建与配置&quot;&gt;&lt;a href=&quot;#私有仓库搭建与配置&quot; class=&quot;headerlink&quot; title=&quot;私有仓库搭建与配置&quot;&gt;&lt;/a&gt;私有仓库搭建与配置&lt;/h4&gt;&lt;p&gt;1、拉取私有仓库镜像（此步省略）&lt;br&gt;命令：&lt;code&gt;docker pull r
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dockerfile</title>
+    <link href="https://jasondcq.github.io/Dockerfile/"/>
+    <id>https://jasondcq.github.io/Dockerfile/</id>
+    <published>2020-05-24T13:21:00.000Z</published>
+    <updated>2020-05-24T13:32:27.259Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="什么是Dockerfile"><a href="#什么是Dockerfile" class="headerlink" title="什么是Dockerfile"></a>什么是Dockerfile</h4><p>Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。<br>1、对于开发人员：可以为开发团队提供一个完全一致的开发环境；<br>2、对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件构建一个新的镜像开始工作了；<br>3、对于运维人员：在部署时，可以实现应用的无缝移植；</p><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><table><thead><tr><th>命令</th><th align="center">作用</th></tr></thead><tbody><tr><td>FROM image_name:tag</td><td align="center">定义了使用哪个基础镜像启动构建流程</td></tr><tr><td>MAINTAINER user_name</td><td align="center">声明镜像的创建者</td></tr><tr><td>ENV key value</td><td align="center">设置环境变量 (可以写多条)</td></tr><tr><td>RUN command</td><td align="center">是Dockerfile的核心部分(可以写多条)</td></tr><tr><td>ADD source_dir/file dest_dir/file</td><td align="center">将宿主机的文件复制到容器内，如果是一个压缩文件，将会在复制后自动解压</td></tr><tr><td>COPY source_dir/file dest_dir/file</td><td align="center">和ADD相似，但是如果有压缩文件并不能解压</td></tr><tr><td>WORKDIR path_dir</td><td align="center">设置工作目录</td></tr></tbody></table><h4 id="使用脚本创建镜像"><a href="#使用脚本创建镜像" class="headerlink" title="使用脚本创建镜像"></a>使用脚本创建镜像</h4><p>步骤：<br>1、创建目录<br>命令：<code>mkdir –p /usr/local/dockerjdk8</code></p><p>2、下载jdk-8u171-linux-x64.tar.gz并上传到服务器（虚拟机）中的/usr/local/dockerjdk8目录</p><p>3、创建文件Dockerfile <code>vim Dockerfile</code></p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#依赖镜像名称和ID</span></span><br><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="comment">#指定镜像创建者信息</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> ITCAST</span><br><span class="line"><span class="comment">#切换工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /usrRUN mkdir /usr/<span class="built_in">local</span>/java</span></span><br><span class="line"><span class="comment">#ADD 是相对路径jar,把java添加到容器中</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> jdk-8u171-linux-x64.tar.gz /usr/<span class="built_in">local</span>/java/</span></span><br><span class="line"><span class="comment">#配置java环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java/jdk1.<span class="number">8.0</span>_171</span><br><span class="line"><span class="keyword">ENV</span> JRE_HOME $JAVA_HOME/jre</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH</span><br><span class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure><p>4、执行命令构建镜像<br>命令：<code>docker build -t=&#39;jdk1.8&#39; .</code><br>注意后边的空格和点，不要省略</p><p>5、查看镜像是否建立完成<br>命令：<code>docker images</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;什么是Dockerfile&quot;&gt;&lt;a href=&quot;#什么是Dockerfile&quot; class=&quot;headerlink&quot; title=&quot;什么是Dockerfile&quot;&gt;&lt;/a&gt;什么是Dockerfile&lt;/h4&gt;&lt;p&gt;Dockerfile是由一系列命令和参数构成的脚本，
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker迁移与备份</title>
+    <link href="https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/"/>
+    <id>https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/</id>
+    <published>2020-05-24T13:17:00.000Z</published>
+    <updated>2020-05-24T13:19:36.070Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="迁移与备份"><a href="#迁移与备份" class="headerlink" title="迁移与备份"></a>迁移与备份</h3><h4 id="容器保存为镜像"><a href="#容器保存为镜像" class="headerlink" title="容器保存为镜像"></a>容器保存为镜像</h4><p>我们可以通过以下命令将容器保存为镜像：<code>docker commit mynginx mynginx_i</code></p><h4 id="镜像备份"><a href="#镜像备份" class="headerlink" title="镜像备份"></a>镜像备份</h4><p>我们可以通过以下命令将镜像保存为tar 文件：<code>docker save -o mynginx.tar mynginx_i</code></p><h4 id="镜像恢复与迁移"><a href="#镜像恢复与迁移" class="headerlink" title="镜像恢复与迁移"></a>镜像恢复与迁移</h4><p>首先我们先删除掉<code>mynginx_img</code>镜像 然后执行此命令进行恢复：<code>docker load -i mynginx.tar</code> </p><ul><li>-i 输入的文件<br>执行后再次查看镜像，可以看到镜像已经恢复</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;迁移与备份&quot;&gt;&lt;a href=&quot;#迁移与备份&quot; class=&quot;headerlink&quot; title=&quot;迁移与备份&quot;&gt;&lt;/a&gt;迁移与备份&lt;/h3&gt;&lt;h4 id=&quot;容器保存为镜像&quot;&gt;&lt;a href=&quot;#容器保存为镜像&quot; class=&quot;headerlink&quot; title=
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker应用部署</title>
+    <link href="https://jasondcq.github.io/Docker%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/"/>
+    <id>https://jasondcq.github.io/Docker%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/</id>
+    <published>2020-05-24T12:51:00.000Z</published>
+    <updated>2020-05-24T13:00:58.606Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="应用部署"><a href="#应用部署" class="headerlink" title="应用部署"></a>应用部署</h3><h4 id="MySQL部署"><a href="#MySQL部署" class="headerlink" title="MySQL部署"></a>MySQL部署</h4><p>1、拉取mysql镜像<br>命令：<code>docker pull centos/mysql-57-centos7</code></p><p>2、创建容器<br>命令：<code>docker run -di --name=tensquare_mysql -p 33306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</code></p><ul><li>-p 代表端口映射，格式为 宿主机映射端口:容器运行端口</li><li>-e 代表添加环境变量 MYSQL_ROOT_PASSWORD 是root用户的登陆密码</li></ul><p>3、远程登录mysql<br>连接宿主机的IP ,指定端口为33306</p><h4 id="tomcat部署"><a href="#tomcat部署" class="headerlink" title="tomcat部署"></a>tomcat部署</h4><p>1、拉取镜像<br>命令：<code>docker pull tomcat:7-jre7</code></p><p>2、创建容器，创建容器 -p表示地址映射<br>命令：<code>docker run -di --name=mytomcat -p 9000:8080-v /usr/local/webapps:/usr/local/tomcat/webapps tomcat:7-jre7</code></p><h4 id="Nginx部署"><a href="#Nginx部署" class="headerlink" title="Nginx部署"></a>Nginx部署</h4><p>1、拉取镜像<br>命令：<code>docker pull nginx</code></p><p>2、创建Nginx容器<br>命令：<code>docker run -di --name=mynginx -p 80:80 nginx</code></p><h4 id="Redis部署"><a href="#Redis部署" class="headerlink" title="Redis部署"></a>Redis部署</h4><p>1、拉取镜像<br>命令：<code>docker pull redis</code></p><p>2、创建容器<br>命令：<code>docker run -di --name=myredis -p 6379:6379 redis</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;应用部署&quot;&gt;&lt;a href=&quot;#应用部署&quot; class=&quot;headerlink&quot; title=&quot;应用部署&quot;&gt;&lt;/a&gt;应用部署&lt;/h3&gt;&lt;h4 id=&quot;MySQL部署&quot;&gt;&lt;a href=&quot;#MySQL部署&quot; class=&quot;headerlink&quot; title=&quot;MyS
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker常用命令</title>
+    <link href="https://jasondcq.github.io/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://jasondcq.github.io/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-05-24T12:05:00.000Z</published>
+    <updated>2020-05-24T13:15:53.556Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="镜像相关命令"><a href="#镜像相关命令" class="headerlink" title="镜像相关命令"></a>镜像相关命令</h4><p>1、查看镜像：<code>docker images</code></p><p>列表参数说明：</p><ul><li>REPOSITORY：镜像名称</li><li>TAG：镜像标签</li><li>IMAGE ID：镜像ID</li><li>CREATED：镜像的创建日期（不是获取该镜像的日期）</li><li>SIZE：镜像大小<br>这些镜像都是存储在Docker宿主机的/var/lib/docker目录下</li></ul><p>只列出镜像ID：<code>docker images -q</code></p><p>2、搜索镜像：<code>docker search 镜像名称</code></p><p>列表参数说明：</p><ul><li>NAME：仓库名称</li><li>DESCRIPTION：镜像描述</li><li>STARS：用户评价，反应一个镜像的受欢迎程度</li><li>OFFICIAL：是否官方</li><li>AUTOMATED：自动构建，表示该镜像由Docker Hub自动构建流程创建的</li></ul><p>3、拉取镜像：<code>docker pull 镜像名称</code><br>拉取镜像就是从中央仓库中下载镜像到本地，例如，我要下载centos7镜像：<code>docker pull centos:7</code></p><p>4、删除镜像<br>按镜像ID删除镜像：<code>docker rmi 镜像ID</code><br>删除所有镜像：<code>docker rmi `docker images -q</code> 或 <code>docker rmi $(docker images -q)</code></p><h4 id="容器相关命令"><a href="#容器相关命令" class="headerlink" title="容器相关命令"></a>容器相关命令</h4><p>1、查看容器</p><ul><li>查看正在运行的容器： <code>docker ps</code></li><li>查看所有容器：<code>docker ps –a</code></li><li>查看最后一次运行的容器：<code>docker ps –l</code></li><li>查看停止的容器：<code>docker ps -f status=exited</code></li></ul><p>2、创建与启动容器</p><p>创建容器常用的参数说明：<br>创建容器命令：<code>docker run</code></p><ul><li>-i：表示运行容器</li><li>-t：表示容器启动后会进入其命令行。加入这两个参数后，容器创建就能登录进去。即分配一个伪终端。</li><li>–name :为创建的容器命名。</li><li>-v：表示目录映射关系（前者是宿主机目录，后者是映射到宿主机上的目录），可以使用多个－v做多个目录或文件映射。注意：最好做目录映射，在宿主机上做修改，然后共享到容器上。</li><li>-d：在run后面加上-d参数,则会创建一个守护式容器在后台运行（这样创建容器后不会自动登录容器，如果只加-i -t两个参数，创建后就会自动进去容器）。</li><li>-p：表示端口映射，前者是宿主机端口，后者是容器内的映射端口。可以使用多个-p做多个端口映射</li></ul><p>2.1、交互式方式创建容器：<code>docker run -it --name=容器名称 镜像名称:标签 /bin/bash</code>这时我们通过ps命令查看，发现可以看到启动的容器，状态为启动状态<br>退出当前容器<code>exit</code></p><p>2.2、守护式方式创建容器：<code>docker run -di --name=容器名称 镜像名称:标签</code><br>登录守护式容器方式：<code>docker exec -it 容器名称 (或者容器ID) /bin/bash</code></p><p>3、停止与启动容器</p><p>停止容器：<code>docker stop 容器名称（或者容器ID）</code><br>启动容器：<code>docker start 容器名称（或者容器ID）</code></p><p>4、文件拷贝</p><p>如果我们需要将文件拷贝到容器内可以使用<code>cp</code>命令：<code>docker cp 需要拷贝的文件或目录 容器名称:容器目录</code><br>也可以将文件从容器内拷贝出来：<code>docker cp 容器名称:容器目录 需要拷贝的文件或目录</code></p><p>5、目录挂载</p><p>我们可以在创建容器的时候，将宿主机的目录与容器内的目录进行映射，这样我们就可以通过修改宿主机某个目录<br>的文件从而去影响容器。 创建容器 添加-v参数 后边为 宿主机目录:容器目录，例如：<code>docker run -di -v /usr/local/myhtml:/usr/local/myhtml --name=mycentos3 centos:7</code><br>如果你共享的是多级的目录，可能会出现权限不足的提示，这是因为CentOS7中的安全模块selinux把权限禁掉了，我们需要添加参数 <code>--privileged=true</code> 来解决挂载的目录没有权限的问题</p><p>6、查看容器IP地址</p><p>我们可以通过以下命令查看容器运行的各种数据：<code>docker inspect 容器名称（容器ID）</code></p><p>也可以直接执行下面的命令直接输出IP地址：<code>docker inspect --format=&#39;&#39; 容器名称（容器ID）</code></p><p>7、删除容器</p><p>删除指定的容器：<code>docker rm 容器名称（容器ID）</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;镜像相关命令&quot;&gt;&lt;a href=&quot;#镜像相关命令&quot; class=&quot;headerlink&quot; title=&quot;镜像相关命令&quot;&gt;&lt;/a&gt;镜像相关命令&lt;/h4&gt;&lt;p&gt;1、查看镜像：&lt;code&gt;docker images&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;列表参数说明：&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker安装与启动</title>
+    <link href="https://jasondcq.github.io/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8/"/>
+    <id>https://jasondcq.github.io/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8/</id>
+    <published>2020-05-24T11:48:00.000Z</published>
+    <updated>2020-05-24T12:05:08.367Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h4><p>Docker官方建议在Ubuntu中安装，因为Docker是基于Ubuntu发布的，而且一般Docker出现的问题Ubuntu是最先更新或者打补丁的。在很多版本的CentOS中是不支持更新最新的一些补丁包的。</p><p>由于我们一般生产环境都使用的是CentOS，因此这里我们将Docker安装到CentOS上。注意：这里建议安装在CentOS7.x以上的版本，CentOS6.x的版本中，安装前需要安装其他很多的环境而且Docker很多补丁不支持更<br>新。</p><p>1、yum包更新到最新<br>命令：<code>sudo yum update</code></p><p>2、安装需要的软件包，yum-util提供yum-config-manager功能，另外两个是devicemapper驱动依赖的<br>命令：<code>sudo yum install -y yum-utils device-mapper-persistent-data lvm2</code></p><p>3、设置yum源为阿里云<br>命令：<code>sudo yum-config-manager --add-repo http://mirrors.aliyun.com/dockerce/linux/centos/docker-ce.repo</code></p><p>4、安装docker<br>命令：<code>sudo yum install docker-ce</code></p><p>5、安装后查看docker版本<br>命令：<code>docker -v</code></p><h4 id="设置ustc的镜像或阿里云镜像加速"><a href="#设置ustc的镜像或阿里云镜像加速" class="headerlink" title="设置ustc的镜像或阿里云镜像加速"></a>设置ustc的镜像或阿里云镜像加速</h4><p>编辑该文件：<code>vi /etc/docker/daemon.json</code><br>在该文件中输入如下内容：<code>{ &quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn&quot;]}</code></p><h4 id="Docker的启动与停止"><a href="#Docker的启动与停止" class="headerlink" title="Docker的启动与停止"></a>Docker的启动与停止</h4><p>systemctl命令是系统服务管理器指令</p><p>1、启动docker：<code>systemctl start docker</code><br>2、停止docker：<code>systemctl stop docker</code><br>3、重启docker：<code>systemctl restart docker</code><br>4、查看docker状态：<code>systemctl status docker</code><br>5、开机启动：<code>systemctl enable docker</code><br>6、查看docker概要信息：<code>docker info</code><br>7、查看docker帮助文档：<code>docker --help</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;安装Docker&quot;&gt;&lt;a href=&quot;#安装Docker&quot; class=&quot;headerlink&quot; title=&quot;安装Docker&quot;&gt;&lt;/a&gt;安装Docker&lt;/h4&gt;&lt;p&gt;Docker官方建议在Ubuntu中安装，因为Docker是基于Ubuntu发布的，而且一般
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://jasondcq.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vuejs快速学习系列(六) Vuex详解</title>
     <link href="https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E5%85%AD-Vuex%E8%AF%A6%E8%A7%A3/"/>
     <id>https://jasondcq.github.io/Vuejs%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E5%85%AD-Vuex%E8%AF%A6%E8%A7%A3/</id>
     <published>2020-05-07T15:43:00.000Z</published>
-    <updated>2020-05-07T15:52:21.161Z</updated>
+    <updated>2020-05-08T03:03:46.495Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="认识Vuex"><a href="#认识Vuex" class="headerlink" title="认识Vuex"></a>认识Vuex</h3><h4 id="Vuex是做什么的"><a href="#Vuex是做什么的" class="headerlink" title="Vuex是做什么的?"></a>Vuex是做什么的?</h4><p>官方解释：<code>Vuex</code> 是一个专为 <code>Vue.js</code> 应用程序开发的状态管理模式</p><ul><li>它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</li><li><code>Vuex</code> 也集成到 <code>Vue</code> 的官方调试工具 <code>devtools</code> <code>extension</code>，提供了诸如零配置的 <code>time-travel</code> 调试、状态快照导入导出等高级调试功能</li></ul><p>状态管理到底是什么？</p><ul><li>状态管理模式、集中式存储管理这些名词听起来就非常高大上，让人捉摸不透，其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面，然后，将这个对象放在顶层的<code>Vue</code>实例中，让其他组件可以使用，那么，多个组件是不是就可以共享这个对象中的所有变量属性了呢？等等，如果是这样的话，为什么官方还要专门出一个插件<code>Vuex</code>呢？难道我们不能自己封装一个对象来管理吗？当然可以，只是我们要先想想<code>VueJS</code>带给我们最大的便利是什么呢？没错，就是响应式，如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些，不用怀疑，<code>Vuex</code>就是为了提供这样一个在多个组件间共享状态的插件，用它就可以了。</li></ul><h4 id="管理什么状态呢"><a href="#管理什么状态呢" class="headerlink" title="管理什么状态呢?"></a>管理什么状态呢?</h4>]]></content>
+    <content type="html"><![CDATA[<h3 id="认识Vuex"><a href="#认识Vuex" class="headerlink" title="认识Vuex"></a>认识Vuex</h3><h4 id="Vuex是做什么的"><a href="#Vuex是做什么的" class="headerlink" title="Vuex是做什么的?"></a>Vuex是做什么的?</h4><p>官方解释：<code>Vuex</code> 是一个专为 <code>Vue.js</code> 应用程序开发的状态管理模式</p><ul><li>它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</li><li><code>Vuex</code> 也集成到 <code>Vue</code> 的官方调试工具 <code>devtools</code> <code>extension</code>，提供了诸如零配置的 <code>time-travel</code> 调试、状态快照导入导出等高级调试功能</li></ul><p>状态管理到底是什么？</p><ul><li>状态管理模式、集中式存储管理这些名词听起来就非常高大上，让人捉摸不透，其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面，然后，将这个对象放在顶层的<code>Vue</code>实例中，让其他组件可以使用，那么，多个组件是不是就可以共享这个对象中的所有变量属性了呢？等等，如果是这样的话，为什么官方还要专门出一个插件<code>Vuex</code>呢？难道我们不能自己封装一个对象来管理吗？当然可以，只是我们要先想想<code>VueJS</code>带给我们最大的便利是什么呢？没错，就是响应式，如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些，不用怀疑，<code>Vuex</code>就是为了提供这样一个在多个组件间共享状态的插件，用它就可以了。</li></ul><h4 id="管理什么状态呢"><a href="#管理什么状态呢" class="headerlink" title="管理什么状态呢?"></a>管理什么状态呢?</h4><p>有什么状态时需要我们在多个组件间共享的呢？如果你做过大型开发，你一定遇到过多个状态，在多个界面间的共享问题，比如用户的登录状态、用户名称、头像、地理位置信息等等，比如商品的收藏、购物车中的物品等等，这些状态信息，我们都可以放在统一的地方，对它进行保存和管理，而且它们还是响应式的。</p><h4 id="单界面的状态管理"><a href="#单界面的状态管理" class="headerlink" title="单界面的状态管理"></a>单界面的状态管理</h4><p>我们知道，要在单个组件中进行状态管理是一件非常简单的事情，什么意思呢？我们来看下面的图片：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_1.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>这图片中的三种东西，怎么理解呢？</p><ul><li><code>State</code>：不用多说，就是我们的状态。（你姑且可以当做就是<code>data</code>中的属性）</li><li><code>View</code>：视图层，可以针对<code>State</code>的变化，显示不同的信息。（这个好理解吧？）</li><li><code>Actions</code>：这里的<code>Actions</code>主要是用户的各种操作：点击、输入等等，会导致状态的改变</li></ul><h4 id="单界面状态管理的实现"><a href="#单界面状态管理的实现" class="headerlink" title="单界面状态管理的实现"></a>单界面状态管理的实现</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_2.jpg" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><ul><li>在这个案例中，我们有木有状态需要管理呢？没错，就是个数<code>counter</code></li><li><code>counter</code>需要某种方式被记录下来，也就是我们的<code>State</code></li><li><code>counter</code>目前的值需要被显示在界面中，也就是我们的<code>View</code>部分</li><li>界面发生某些操作时（我们这里是用户的点击，也可以是用户的<code>input</code>），需要去更新状态，也就是我们的<code>Actions</code></li></ul><h4 id="多界面状态管理"><a href="#多界面状态管理" class="headerlink" title="多界面状态管理"></a>多界面状态管理</h4><p>Vue已经帮我们做好了单个界面的状态管理，但是如果是多个界面呢？</p><ul><li>多个试图都依赖同一个状态（一个状态改了，多个界面需要进行更新）</li><li>不同界面的<code>Actions</code>都想修改同一个状态（<code>Home.vue</code>需要修改，<code>Profile.vue</code>也需要修改这个状态）</li></ul><p>也就是说对于某些状态(状态1/状态2/状态3)来说只属于我们某一个试图，但是也有一些状态(状态a/状态b/状态c)属于多个试图共同想要维护的</p><ul><li>状态1/状态2/状态3你放在自己的房间中，你自己管理自己用，没问题</li><li>但是状态a/状态b/状态c我们希望交给一个大管家来统一帮助我们管理！！！</li><li>没错，Vuex就是为我们提供这个大管家的工具</li></ul><p>全局单例模式（大管家）</p><ul><li>我们现在要做的就是将共享的状态抽取出来，交给我们的大管家，统一进行管理</li><li>之后，你们每个试图，按照我规定好的规定，进行访问和修改等操作</li><li>这就是Vuex背后的基本思想</li></ul><h4 id="Vuex状态管理图例"><a href="#Vuex状态管理图例" class="headerlink" title="Vuex状态管理图例"></a>Vuex状态管理图例</h4><p>一起在来看一副官方给出的图片</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_3.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><h3 id="Vuex的基本使用"><a href="#Vuex的基本使用" class="headerlink" title="Vuex的基本使用"></a>Vuex的基本使用</h3><h4 id="简单的案例"><a href="#简单的案例" class="headerlink" title="简单的案例"></a>简单的案例</h4><p>首先，我们需要在某个地方存放我们的<code>Vuex</code>代码：</p><ul><li>这里，我们先创建一个文件夹<code>store</code>，并且在其中创建一个<code>index.js</code>文件</li><li>在<code>index.js</code>文件中写入如下代码：</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_4.jpg" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><h4 id="挂载到Vue实例中"><a href="#挂载到Vue实例中" class="headerlink" title="挂载到Vue实例中"></a>挂载到Vue实例中</h4><p>其次，我们让所有的<code>Vue</code>组件都可以使用这个<code>store</code>对象</p><ul><li>来到<code>main.js</code>文件，导入<code>store</code>对象，并且放在<code>new Vue</code>中</li><li>这样，在其他<code>Vue</code>组件中，我们就可以通过<code>this.$store</code>的方式，获取到这个<code>store</code>对象了</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_5.jpg" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><h4 id="使用Vuex的count"><a href="#使用Vuex的count" class="headerlink" title="使用Vuex的count"></a>使用Vuex的count</h4><p>这就是使用<code>Vuex</code>最简单的方式了</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/vue/img/vuex/img_6.jpg" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>我们来对使用步骤，做一个简单的小节：</p><p>1、提取出一个公共的<code>store</code>对象，用于保存在多个组件中共享的状态<br>2、将<code>store</code>对象放置在<code>new Vue</code>对象中，这样可以保证在所有的组件中都可以使用到<br>3、在其他组件中使用<code>store</code>对象中保存的状态即可</p><ul><li>通过<code>this.$store.state.</code>属性的方式来访问状态</li><li>通过<code>this.$store.commit(&#39;mutation中方法&#39;)</code>来修改状态</li></ul><p>注意事项：</p><ul><li>我们通过提交<code>mutation</code>的方式，而非直接改变<code>store.state.count</code></li><li>这是因为<code>Vuex</code>可以更明确的追踪状态的变化，所以不要直接改变<code>store.state.count</code>的值</li></ul>]]></content>
     
     <summary type="html">
     
@@ -125,9 +309,9 @@
     <link href="https://jasondcq.github.io/Mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85memcached/"/>
     <id>https://jasondcq.github.io/Mac%E4%BD%BF%E7%94%A8brew%E5%AE%89%E8%A3%85memcached/</id>
     <published>2020-04-24T06:13:00.000Z</published>
-    <updated>2020-05-03T13:09:52.928Z</updated>
+    <updated>2020-05-24T11:45:31.845Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="HomeBrew安装"><a href="#HomeBrew安装" class="headerlink" title="HomeBrew安装"></a>HomeBrew安装</h4><p>1、<code>homebrew</code> 是 <code>macOS</code> 缺失的软件包管理器,譬如可以下载 <code>mysql</code>、<code>redis</code>、<code>wget</code> 等等.操作系统：macOS High Sierra Version 10.14.5<br>2、<code>Homebrew</code> 会将软件包安装到独立目录,并将其文件软链接至 <code>/usr/local</code> . <code>Homebrew</code> 不会将文件安装到它本身目录之外,所以您可将 <code>Homebrew</code> 安装到任意位置.<br>3、<code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code><br>4、官方网站<a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a></p><h4 id="HomeBrew的基本使用方法："><a href="#HomeBrew的基本使用方法：" class="headerlink" title="HomeBrew的基本使用方法："></a>HomeBrew的基本使用方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew search **  &#x2F;&#x2F;查找某个软件包</span><br><span class="line">brew list  &#x2F;&#x2F;列出已经安装的软件的包</span><br><span class="line">brew install ** &#x2F;&#x2F;安装某个软件包,默认安装的是稳定版本</span><br><span class="line">brew uninstall **&#x2F;&#x2F;卸载某个软件的包</span><br><span class="line">brew upgrade ** &#x2F;&#x2F;更新某个软件包</span><br><span class="line">brew info ** &#x2F;&#x2F;查看指定软件包的说明</span><br><span class="line">brew cache clean &#x2F;&#x2F;清理缓存</span><br></pre></td></tr></table></figure><h4 id="memcached安装"><a href="#memcached安装" class="headerlink" title="memcached安装"></a>memcached安装</h4><p>1、使用命令<code>brew info memcached</code>检查是否已安装memcached及其依赖包情况</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/mactool/img/img_1.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>2、如上图所示，<code>memcached</code>的依赖包为<code>libevent</code>，如果未安装<code>libevent</code>（会打个红色的X），则需要首先查看<code>libevent</code>安装的依赖包，检查<code>libevent</code>的依赖包是否安装，使用命令<code>brew info libevent</code>:</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/mactool/img/img_2.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>3、未安装的依赖会打一个红色的X，安装打X依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install doxygen</span><br><span class="line">brew install libtool</span><br></pre></td></tr></table></figure><p>4、依赖包安装完后</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install libevent</span><br><span class="line">brew install memcached</span><br></pre></td></tr></table></figure><p>5、安装完成，启动服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;启动</span><br><span class="line">brew services start memcached</span><br><span class="line">&#x2F;&#x2F;停止</span><br><span class="line">brew services stop memcached</span><br><span class="line">&#x2F;&#x2F;重启</span><br><span class="line">brew services restart memcached</span><br><span class="line">&#x2F;&#x2F;查看所有运行的服务</span><br><span class="line">brew services list</span><br></pre></td></tr></table></figure><h4 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h4><p>1、安装包管理器最新版本<code>brew install redis</code></p><p>2、安装指定版本<code>brew install redis@4.0</code></p><p>3、<code>/usr/local/etc</code> 下修改<code>redis.config</code><br>找到<code>daemonize no</code> 改成<code>yes</code>以守护进程的方式启动配置环境变量echo ‘export PATH=”/usr/local/opt/redis@3.2/bin:$PATH”‘ &gt;&gt; ~/.zshrc</p><p>4、启动:<code>brew services start redis</code>或者使用<code>redis-server /usr/local/etc/redis.conf</code>启动</p><p>5、查看进程<code>ps axu | grep redis</code></p><p>6、关闭<code>redis-cli shutdown</code></p><p>7、杀死<code>sudo pkill redis-server</code></p><h4 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install mysql</span><br><span class="line">brew info mysql</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><p>运行 <code>brew service start mysql</code> 可以后台启动 <code>mysql</code>,运行 <code>mysql.server start</code> 前台启动 <code>mysql</code>(关闭控制台,服务停止),当安装完成之后需要进行一些设置。</p><p>设置密码需先启动 <code>mysql</code> 服务 <code>mysql_secure_installation</code></p><p>设置完之后测试一下，连接mysql: <code>mysql -u root -p 123456</code></p><h4 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a>配置自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">ln -sfv &#x2F;usr&#x2F;local&#x2F;opt&#x2F;mysql&#x2F;*.plist ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">find &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;mysql&#x2F; -name &quot;homebrew.mxcl.mysql.plist&quot; -exec cp &#123;&#125; ~&#x2F;Library&#x2F;LaunchAgents&#x2F; \;</span><br><span class="line"></span><br><span class="line">launchctl load -w ~&#x2F;Library&#x2F;LaunchAgents&#x2F;homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h4 id="HomeBrew安装"><a href="#HomeBrew安装" class="headerlink" title="HomeBrew安装"></a>HomeBrew安装</h4><p>1、<code>homebrew</code> 是 <code>macOS</code> 缺失的软件包管理器,譬如可以下载 <code>mysql</code>、<code>redis</code>、<code>wget</code> 等等.操作系统：macOS High Sierra Version 10.14.5<br>2、<code>Homebrew</code> 会将软件包安装到独立目录,并将其文件软链接至 <code>/usr/local</code> . <code>Homebrew</code> 不会将文件安装到它本身目录之外,所以您可将 <code>Homebrew</code> 安装到任意位置.<br>3、<code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code><br>4、官方网站<a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a></p><h4 id="HomeBrew的基本使用方法："><a href="#HomeBrew的基本使用方法：" class="headerlink" title="HomeBrew的基本使用方法："></a>HomeBrew的基本使用方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew search **  &#x2F;&#x2F;查找某个软件包</span><br><span class="line">brew list  &#x2F;&#x2F;列出已经安装的软件的包</span><br><span class="line">brew install ** &#x2F;&#x2F;安装某个软件包,默认安装的是稳定版本</span><br><span class="line">brew uninstall **&#x2F;&#x2F;卸载某个软件的包</span><br><span class="line">brew upgrade ** &#x2F;&#x2F;更新某个软件包</span><br><span class="line">brew info ** &#x2F;&#x2F;查看指定软件包的说明</span><br><span class="line">brew cache clean &#x2F;&#x2F;清理缓存</span><br></pre></td></tr></table></figure><h4 id="memcached安装"><a href="#memcached安装" class="headerlink" title="memcached安装"></a>memcached安装</h4><p>1、使用命令<code>brew info memcached</code>检查是否已安装memcached及其依赖包情况</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/mactool/img/img_1.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>2、如上图所示，<code>memcached</code>的依赖包为<code>libevent</code>，如果未安装<code>libevent</code>（会打个红色的X），则需要首先查看<code>libevent</code>安装的依赖包，检查<code>libevent</code>的依赖包是否安装，使用命令<code>brew info libevent</code>:</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://blog.dcq.kuryun.cn/mactool/img/img_2.png" alt="avatar" title="">                </div>                <div class="image-caption">avatar</div>            </figure><p>3、未安装的依赖会打一个红色的X，安装打X依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install doxygen</span><br><span class="line">brew install libtool</span><br></pre></td></tr></table></figure><p>4、依赖包安装完后</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install libevent</span><br><span class="line">brew install memcached</span><br></pre></td></tr></table></figure><p>5、安装完成，启动服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;启动</span><br><span class="line">brew services start memcached</span><br><span class="line">&#x2F;&#x2F;停止</span><br><span class="line">brew services stop memcached</span><br><span class="line">&#x2F;&#x2F;重启</span><br><span class="line">brew services restart memcached</span><br><span class="line">&#x2F;&#x2F;查看所有运行的服务</span><br><span class="line">brew services list</span><br></pre></td></tr></table></figure><h4 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h4><p>1、安装包管理器最新版本<code>brew install redis</code></p><p>2、安装指定版本<code>brew install redis@4.0</code></p><p>3、<code>/usr/local/etc</code> 下修改<code>redis.config</code><br>找到<code>daemonize no</code> 改成<code>yes</code>以守护进程的方式启动配置环境变量echo ‘export PATH=”/usr/local/opt/redis@3.2/bin:$PATH”‘ &gt;&gt; ~/.zshrc</p><p>4、启动:<code>brew services start redis</code>或者使用<code>redis-server /usr/local/etc/redis.conf</code>启动</p><p>5、查看进程<code>ps axu | grep redis</code></p><p>6、关闭<code>redis-cli shutdown</code></p><p>7、杀死<code>sudo pkill redis-server</code></p><h4 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install mysql</span><br><span class="line">brew info mysql</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><p>运行 <code>brew services start mysql</code> 可以后台启动 <code>mysql</code>,运行 <code>mysql.server start</code> 前台启动 <code>mysql</code>(关闭控制台,服务停止),当安装完成之后需要进行一些设置。</p><p>设置密码需先启动 <code>mysql</code> 服务 <code>mysql_secure_installation</code></p><p>设置完之后测试一下，连接mysql: <code>mysql -u root -p 123456</code></p><h4 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a>配置自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">ln -sfv &#x2F;usr&#x2F;local&#x2F;opt&#x2F;mysql&#x2F;*.plist ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">find &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;mysql&#x2F; -name &quot;homebrew.mxcl.mysql.plist&quot; -exec cp &#123;&#125; ~&#x2F;Library&#x2F;LaunchAgents&#x2F; \;</span><br><span class="line"></span><br><span class="line">launchctl load -w ~&#x2F;Library&#x2F;LaunchAgents&#x2F;homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     

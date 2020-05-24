@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://blog.dcq.kuryun.cn/mactool/img/img_1.png">
 <meta property="og:image" content="http://blog.dcq.kuryun.cn/mactool/img/img_2.png">
 <meta property="article:published_time" content="2020-04-24T06:13:00.000Z">
-<meta property="article:modified_time" content="2020-05-03T13:09:52.928Z">
+<meta property="article:modified_time" content="2020-05-24T11:45:31.845Z">
 <meta property="article:author" content="JasonD">
 <meta property="article:tag" content="mac工具">
 <meta name="twitter:card" content="summary">
@@ -229,11 +229,10 @@
 <p>6、关闭<code>redis-cli shutdown</code></p>
 <p>7、杀死<code>sudo pkill redis-server</code></p>
 <h4 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install mysql</span><br><span class="line">brew info mysql</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure>
-<p>运行 <code>brew service start mysql</code> 可以后台启动 <code>mysql</code>,运行 <code>mysql.server start</code> 前台启动 <code>mysql</code>(关闭控制台,服务停止),当安装完成之后需要进行一些设置。</p>
+<p>运行 <code>brew services start mysql</code> 可以后台启动 <code>mysql</code>,运行 <code>mysql.server start</code> 前台启动 <code>mysql</code>(关闭控制台,服务停止),当安装完成之后需要进行一些设置。</p>
 <p>设置密码需先启动 <code>mysql</code> 服务 <code>mysql_secure_installation</code></p>
 <p>设置完之后测试一下，连接mysql: <code>mysql -u root -p 123456</code></p>
 <h4 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a>配置自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">ln -sfv &#x2F;usr&#x2F;local&#x2F;opt&#x2F;mysql&#x2F;*.plist ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">find &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;mysql&#x2F; -name &quot;homebrew.mxcl.mysql.plist&quot; -exec cp &#123;&#125; ~&#x2F;Library&#x2F;LaunchAgents&#x2F; \;</span><br><span class="line"></span><br><span class="line">launchctl load -w ~&#x2F;Library&#x2F;LaunchAgents&#x2F;homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>
-
         </div>
 
         <blockquote class="post-copyright">
@@ -241,7 +240,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-03T13:09:52.928Z" itemprop="dateUpdated">2020-05-03 21:09:52</time>
+    最后更新时间：<time datetime="2020-05-24T11:45:31.845Z" itemprop="dateUpdated">2020-05-24 19:45:31</time>
 </span><br>
 
 

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Kubernetes是什么 | Jason&#39;s Blog | 丁昌乾_技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="k8s">
+    <meta name="description" content="Kubernetes是什么及作用Kubernetes(K8S)是Google在2014年发布的一个开源项目，用于自动化容器化应用程序的部署、扩展和管理。Kubernetes通常结合docker容器工作，并且整合多个运行着docker容器的主机集群。 官网地址https:&#x2F;&#x2F;Kubernetes.io中文社区 https:&#x2F;&#x2F;www.kubernetes.org.cn&#x2F;docs Kubernetes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes是什么">
+<meta property="og:url" content="https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="Kubernetes是什么及作用Kubernetes(K8S)是Google在2014年发布的一个开源项目，用于自动化容器化应用程序的部署、扩展和管理。Kubernetes通常结合docker容器工作，并且整合多个运行着docker容器的主机集群。 官网地址https:&#x2F;&#x2F;Kubernetes.io中文社区 https:&#x2F;&#x2F;www.kubernetes.org.cn&#x2F;docs Kubernetes">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-24T13:46:00.000Z">
+<meta property="article:modified_time" content="2020-05-24T13:52:58.281Z">
+<meta property="article:author" content="JasonD">
+<meta property="article:tag" content="k8s">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Jason&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpeg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">JasonD</h5>
+          <a href="mailto:1589856452@qq.com" title="1589856452@qq.com" class="mail">1589856452@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/JasonDCQ" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/6301617838/profile?topnav=1&wvr=6&is_all=1" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Kubernetes是什么</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Kubernetes是什么</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-05-24T13:46:00.000Z" itemprop="datePublished" class="page-time">
+  2020-05-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/k8s/">k8s</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Kubernetes是什么及作用"><span class="post-toc-number">1.</span> <span class="post-toc-text">Kubernetes是什么及作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用Kubernetes能做什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用Kubernetes能做什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么使用Kubernetes"><span class="post-toc-number">3.</span> <span class="post-toc-text">为什么使用Kubernetes</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Kubernetes概述"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Kubernetes是什么</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-05-24 21:46:00" datetime="2020-05-24T13:46:00.000Z"  itemprop="datePublished">2020-05-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/k8s/">k8s</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="Kubernetes是什么及作用"><a href="#Kubernetes是什么及作用" class="headerlink" title="Kubernetes是什么及作用"></a>Kubernetes是什么及作用</h4><p>Kubernetes(K8S)是Google在2014年发布的一个开源项目，用于自动化容器化应用程序的部署、扩展和管理。Kubernetes通常结合docker容器工作，并且整合多个运行着docker容器的主机集群。 官网地址<a href="https://Kubernetes.io中文社区" target="_blank" rel="noopener">https://Kubernetes.io中文社区</a> <a href="https://www.kubernetes.org.cn/docs" target="_blank" rel="noopener">https://www.kubernetes.org.cn/docs</a></p>
+<p>Kubernetes的目标是让部署容器化的应用简单并且高效，Kubernetes一个核心特点就是能够自主的管理容器来保证云平台中的容器按照用户的期望运行。以下是Kubernetes相关特性：</p>
+<ul>
+<li>自动包装<br>根据资源需求和其他约束自动放置容器，同时不会牺牲可用性，混合关  键和最大努力的工作负载，以提高资源利用率并节省更多资源。</li>
+<li>横向缩放<br>使用简单的命令或 UI，或者根据 CPU 的使用情况自动调整应用程序副本数。</li>
+<li>自动部署和回滚<br>Kubernetes 逐渐部署对应用程序或其配置的更改，同时监视应用程序运行状况，以确保它不会同时终止所有实例。 如果出现问题，Kubernetes会为您恢复更改，利用日益增长的部署解决方案的生态系统。</li>
+<li>存储编排<br>自动安装您所选择的存储系统，无论是本地存储，如公有云提供商 GCP 或 AWS, 还是网络存储系统 NFS,iSCSI, Gluster, Ceph, Cinder, 或 Flocker。</li>
+<li>自我修复<br>重新启动失败的容器，在节点不可用时，替换和重新编排节点上的容器，终止不对用户定义的健康检查做出响应的容器，并且不会在客户端准备投放之前将其通告给客户端。</li>
+<li>服务发现和负载均衡<br>不需要修改您的应用程序来使用不熟悉的服务发现机制，Kubernetes 为容器提供了自己的 IP 地址和一组容器的单个 DNS 名称，并可以在它们之间进行负载均衡。</li>
+<li>密钥和配置管理<br>部署和更新密钥和应用程序配置，不会重新编译您的镜像，不会在堆栈配置中暴露密钥(secrets)。</li>
+<li>批处理<br>除了服务之外，Kubernetes还可以管理您的批处理和 CI 工作负载，如果需要，替换出现故障的容器。</li>
+</ul>
+<h4 id="使用Kubernetes能做什么"><a href="#使用Kubernetes能做什么" class="headerlink" title="使用Kubernetes能做什么"></a>使用Kubernetes能做什么</h4><p>Kubernetes是一个全新的基于容器技术的分布式架构领先方案（源于Brog，是google十几年经验的结晶）；<br>Kubernetes是一个开放的开发平台（无侵入性，现有系统很容器迁移到Kubernetes上）；Kubernetes是一个完备的分布式系统支撑平台（完善的集群管理能力）</p>
+<p>使用Kubernetes可以在物理或虚拟机的Kubernetes集群上运行容器化应用，Kubernetes能够提供一个以容器为中心的基础架构，满足在生产环境中运行应用的一些常见需求，如:</p>
+<ul>
+<li>多个进程协同工作</li>
+<li>存储系统挂载</li>
+<li>Distributing secrets</li>
+<li>应用健康检测</li>
+<li>应用实例的复制</li>
+<li>Pod自动伸缩/扩展</li>
+<li>Naming and discovering</li>
+<li>负载均衡</li>
+<li>滚动更新</li>
+<li>资源监控</li>
+<li>日志访问</li>
+<li>调度应用程序</li>
+<li>提供认证和授权</li>
+</ul>
+<h4 id="为什么使用Kubernetes"><a href="#为什么使用Kubernetes" class="headerlink" title="为什么使用Kubernetes"></a>为什么使用Kubernetes</h4><p>使用Kubernetes最直接的感受就是我们可以轻装上阵的开发复杂的系统了；其次Kubernetes是在全面拥抱微服务架构（微服务的核心就是将一个巨大的单体应用拆分成很多小的互相连接的微服务，一个微服务后面可能是多个实例副本在支撑，副本数量可以随着系统负荷的变化而动态调整）；最后Kubernetes系统架构具备超强的横向扩展能力。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-24T13:52:58.281Z" itemprop="dateUpdated">2020-05-24 21:52:58</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jasondcq.github.io">
+            <img src="/img/avatar.jpeg" alt="JasonD">
+            JasonD
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/&title=《Kubernetes是什么》 — Jason's Blog&pic=https://jasondcq.github.io/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/&title=《Kubernetes是什么》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes是什么》 — Jason's Blog&url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/&via=https://jasondcq.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%9E%84%E5%BB%BA/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Docker私有仓库构建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "BIeR4eIledNdUFDdBQgE9nIY-gzGzoHsz",
+            appKey: "TE41dCPOQ9DA96CE8FUPLBkl",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpeg" data-alipay="/img/alipay.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>JasonD &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/&title=《Kubernetes是什么》 — Jason's Blog&pic=https://jasondcq.github.io/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/&title=《Kubernetes是什么》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes是什么》 — Jason's Blog&url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/&via=https://jasondcq.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jasondcq.github.io/Kubernetes%E6%A6%82%E8%BF%B0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3ay1LDMAwF0P7/T5cZVsxA3SupBWIfrzolTXyyEHr4dovX/XOtP3/95vs1kytftjAwMC7LuC9XsvX15tavI//m0d4wMDDOYeSPXF+fPLJKXV+DgYGBkVyT89a/Wgd6DAwMjF7AnWwovw8GBgZGXsTmCV/vyoT3glocAwPjgoxXDQbe8fkP5hsYGBj/jHEvrmQkmTfUeoH7h99iYGBszUjKy+rjJ4PMSQMOAwPjBEav4EzukxzOyEN5od2GgYGxEWNerFZbZoUNJSMBDAyMAxiTpnzSpq8CkpeCgYFxGqNadlY789VEEwMDA6Oalk2Sxd60sZyAYmBgbM1IUrQ8FOZ3SwJxHtwxMDD2ZryjWfYqalIAY2BgnMOoVoJJWKwWtwn4YQKKgYFxAKN3wCtvpc2HCoXTIhgYGJsy5rA8EeyNLZ98g4GBsTWjXC7GiWDvCEUeoB8+CwMDY1NGNfmbBOLJsYwniSMGBsYBjPVWegF3/mqapSwGBsZGjLxlnw8P8oZ+Lxl9ktViYGBsyug1wpKCMy+Pe+lpYRKLgYFxWUav1VUNr70itnzUAwMDY1PGvbjmLbYk1OYh+IdjYRgYGNsx8jXfej7ynBTAGBgYuzImQbaaFOavrNz+w8DAOICRB9mEUW26VYN+4c8YGBiHMdbbzQ9tzEP5k0EmBgYGRrHdP0kr8xeHgYFxAqM6wuwNI/O23S9NYjEwMC7C6BWQvdtVU8P1P4PRfAMDA+MajA9pxX+tL29+NwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '丁昌乾的技术博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

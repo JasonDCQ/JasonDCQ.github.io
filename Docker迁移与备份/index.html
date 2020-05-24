@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Docker迁移与备份 | Jason&#39;s Blog | 丁昌乾_技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Docker">
+    <meta name="description" content="迁移与备份容器保存为镜像我们可以通过以下命令将容器保存为镜像：docker commit mynginx mynginx_i 镜像备份我们可以通过以下命令将镜像保存为tar 文件：docker save -o mynginx.tar mynginx_i 镜像恢复与迁移首先我们先删除掉mynginx_img镜像 然后执行此命令进行恢复：docker load -i mynginx.tar   -i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker迁移与备份">
+<meta property="og:url" content="https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="迁移与备份容器保存为镜像我们可以通过以下命令将容器保存为镜像：docker commit mynginx mynginx_i 镜像备份我们可以通过以下命令将镜像保存为tar 文件：docker save -o mynginx.tar mynginx_i 镜像恢复与迁移首先我们先删除掉mynginx_img镜像 然后执行此命令进行恢复：docker load -i mynginx.tar   -i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-24T13:17:00.000Z">
+<meta property="article:modified_time" content="2020-05-24T13:19:36.070Z">
+<meta property="article:author" content="JasonD">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Jason&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpeg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">JasonD</h5>
+          <a href="mailto:1589856452@qq.com" title="1589856452@qq.com" class="mail">1589856452@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/JasonDCQ" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/6301617838/profile?topnav=1&wvr=6&is_all=1" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Docker迁移与备份</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Docker迁移与备份</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-05-24T13:17:00.000Z" itemprop="datePublished" class="page-time">
+  2020-05-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Docker/">Docker</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#迁移与备份"><span class="post-toc-number">1.</span> <span class="post-toc-text">迁移与备份</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#容器保存为镜像"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">容器保存为镜像</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#镜像备份"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">镜像备份</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#镜像恢复与迁移"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">镜像恢复与迁移</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Docker迁移与备份"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Docker迁移与备份</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-05-24 21:17:00" datetime="2020-05-24T13:17:00.000Z"  itemprop="datePublished">2020-05-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Docker/">Docker</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="迁移与备份"><a href="#迁移与备份" class="headerlink" title="迁移与备份"></a>迁移与备份</h3><h4 id="容器保存为镜像"><a href="#容器保存为镜像" class="headerlink" title="容器保存为镜像"></a>容器保存为镜像</h4><p>我们可以通过以下命令将容器保存为镜像：<code>docker commit mynginx mynginx_i</code></p>
+<h4 id="镜像备份"><a href="#镜像备份" class="headerlink" title="镜像备份"></a>镜像备份</h4><p>我们可以通过以下命令将镜像保存为tar 文件：<code>docker save -o mynginx.tar mynginx_i</code></p>
+<h4 id="镜像恢复与迁移"><a href="#镜像恢复与迁移" class="headerlink" title="镜像恢复与迁移"></a>镜像恢复与迁移</h4><p>首先我们先删除掉<code>mynginx_img</code>镜像 然后执行此命令进行恢复：<code>docker load -i mynginx.tar</code> </p>
+<ul>
+<li>-i 输入的文件<br>执行后再次查看镜像，可以看到镜像已经恢复</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-24T13:19:36.070Z" itemprop="dateUpdated">2020-05-24 21:19:36</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jasondcq.github.io">
+            <img src="/img/avatar.jpeg" alt="JasonD">
+            JasonD
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/&title=《Docker迁移与备份》 — Jason's Blog&pic=https://jasondcq.github.io/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/&title=《Docker迁移与备份》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker迁移与备份》 — Jason's Blog&url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/&via=https://jasondcq.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/Dockerfile/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Dockerfile</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/Docker%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Docker应用部署</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "BIeR4eIledNdUFDdBQgE9nIY-gzGzoHsz",
+            appKey: "TE41dCPOQ9DA96CE8FUPLBkl",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpeg" data-alipay="/img/alipay.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>JasonD &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/&title=《Docker迁移与备份》 — Jason's Blog&pic=https://jasondcq.github.io/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/&title=《Docker迁移与备份》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker迁移与备份》 — Jason's Blog&url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/&via=https://jasondcq.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jasondcq.github.io/Docker%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aS07DQBAFwNz/0iCxRbZff4ZEqLyKLIKnjDTdvJ7XK76+fq77z1d3rn7b7+vqZ/Lf3Lzw8PDwWku/f2SyoCv8/atJnpV893JVeHh4eMd4k2KQvIL553wNeHh4eJ/Dm4Cv7uQ/iYeHh/f/eMn2faK9xsPDw3sXb9IQ32/3yVN6a1jOWvDw8PBi3tYA7C8/v2G+h4eHhzferHvtcl5O5kUFDw8P7wSv1yJX2dVg4v5OeTCGh4eHt8o71+zOB/95aSn83fDw8PCWePnjq8Ow6kZ/fz8Pc/Hw8PBO8/Ijpzm+1xxXB3JR1oKHh4e3yks24h6+GtT2OuGkIOHh4eHt8pIvV8ddPUb1idEa8PDw8P6Ql5eKXqu9NTB7WCEeHh7eAV41Tp1EA3mLXD1S8FAk8PDw8FZ5vYi22kxXt/6t8AIPDw/vBC8vAMnIKi8e1Va7ugY8PDy8c7wqoBrX9spMbyD38L8CHh4e3hJvErbmhwaSIlEdtjVfDR4eHt4Sr7etT8KFSSRRjXTx8PDwTvOq233e4G6FttUihIeHh3eCVz3kNB+DVT/n4Uj0vwIeHh7egJcfYMrLRq8k5FHs6NAVHh4e3iqvOgCrDqt6gUJ1DHZZGPDw8PBWeT1kteHuDb16kQQeHh7eOd5kO+6FvNUAIg8mCoeu8PDw8Aa8Sczau5MXjDyYeBh64eHh4a3yzh2iytlbAUf5u3h4eHgt3lfx2mqj8xcxCjXw8PDwDvC2+s9qqage2MrZr96Fh4eHV+RNikHecM8PIiRri8JcPDw8vCVeb0GTQLY5o6sO7fDw8PA+gFdtcx827tWY+DJxwcPDw3sTrzrCz1vk3gstnI/Aw8PDO8DLw4je8GxSVKoHDkZZCx4eHt7g0NUkmJgc4cqXuDblw8PDw0tX9Q0GBO9kmfgVkAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '丁昌乾的技术博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
