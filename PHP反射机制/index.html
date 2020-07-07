@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>PHP反射机制 | Jason&#39;s Blog | 丁昌乾_技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="PHP">
+    <meta name="description" content="PHP的反射机制提供了一套反射API，用来访问和使用类、方法、属性、参数和注释等，反射可以通过一个对象知道这个对象所属的类，这个类包含哪些方法，这些方法需要传入什么参数，每个参数是什么类型等等，不用创建类的实例也可以访问类的成员和方法，就算类成员定义为 private 私有的也可以在外部访问。PHP官方提供了 ReflectionClass、ReflectionMethod、ReflectionO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP反射机制">
+<meta property="og:url" content="https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="PHP的反射机制提供了一套反射API，用来访问和使用类、方法、属性、参数和注释等，反射可以通过一个对象知道这个对象所属的类，这个类包含哪些方法，这些方法需要传入什么参数，每个参数是什么类型等等，不用创建类的实例也可以访问类的成员和方法，就算类成员定义为 private 私有的也可以在外部访问。PHP官方提供了 ReflectionClass、ReflectionMethod、ReflectionO">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-03T14:05:00.000Z">
+<meta property="article:modified_time" content="2020-07-07T12:56:54.958Z">
+<meta property="article:author" content="JasonD">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Jason&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpeg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">JasonD</h5>
+          <a href="mailto:1589856452@qq.com" title="1589856452@qq.com" class="mail">1589856452@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/JasonDCQ" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/6301617838/profile?topnav=1&wvr=6&is_all=1" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHP反射机制</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHP反射机制</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-03T14:05:00.000Z" itemprop="datePublished" class="page-time">
+  2020-07-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PHP/">PHP</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反射类实例"><span class="post-toc-number">1.</span> <span class="post-toc-text">反射类实例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建反射属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">创建反射属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反射方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">反射方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反射注释"><span class="post-toc-number">4.</span> <span class="post-toc-text">反射注释</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反射实例化"><span class="post-toc-number">5.</span> <span class="post-toc-text">反射实例化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问、执行类的公有方法——public"><span class="post-toc-number">6.</span> <span class="post-toc-text">访问、执行类的公有方法——public</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问、执行类的非公有方法——private、protected"><span class="post-toc-number">7.</span> <span class="post-toc-text">访问、执行类的非公有方法——private、protected</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-PHP反射机制"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHP反射机制</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-03 22:05:00" datetime="2020-07-03T14:05:00.000Z"  itemprop="datePublished">2020-07-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PHP/">PHP</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>PHP的反射机制提供了一套反射API，用来访问和使用类、方法、属性、参数和注释等，反射可以通过一个对象知道这个对象所属的类，这个类包含哪些方法，这些方法需要传入什么参数，每个参数是什么类型等等，不用创建类的实例也可以访问类的成员和方法，就算类成员定义为 private 私有的也可以在外部访问。PHP官方提供了 ReflectionClass、ReflectionMethod、ReflectionObject、ReflectionExtension 等反射类及相应的API，平时用得最多的是 ReflectionClass。我们创建一个User类作为演示Demo。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户相关类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $username;</span><br><span class="line">    <span class="keyword">private</span> $password;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $username</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $password</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username, $password)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = $username;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取用户名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUsername</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置用户名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $username</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setUsername</span><span class="params">($username)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = $username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取密码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">getPassword</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置密码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $password</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">setPassword</span><span class="params">($password)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="反射类实例"><a href="#反射类实例" class="headerlink" title="反射类实例"></a>反射类实例</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一</span></span><br><span class="line">$refClass = <span class="keyword">new</span> ReflectionClass(<span class="keyword">new</span> User(<span class="string">'test_01'</span>, <span class="string">'123456'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//方式二：将类名User作为参数，建立User类的反射类</span></span><br><span class="line">$refClass = <span class="keyword">new</span> ReflectionClass(<span class="string">'User'</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建反射属性"><a href="#创建反射属性" class="headerlink" title="创建反射属性"></a>创建反射属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取User类的所有属性，返回ReflectionProperty的数组</span><br><span class="line">$properties &#x3D; $refClass-&gt;getProperties(); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$properties 结果如下：</span><br><span class="line">Array (</span><br><span class="line">   [0] &#x3D;&gt; ReflectionProperty Object ( [name] &#x3D;&gt; username [class] &#x3D;&gt; User )</span><br><span class="line">   [1] &#x3D;&gt; ReflectionProperty Object ( [name] &#x3D;&gt; password [class] &#x3D;&gt; User )</span><br><span class="line">)   </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取User类的password属性</span><br><span class="line">$property &#x3D; $refClass-&gt;getProperty(&#39;password&#39;); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$property 结果如下：</span><br><span class="line">ReflectionProperty Object ( [name] &#x3D;&gt; password [class] &#x3D;&gt; User )</span><br></pre></td></tr></table></figure>
+
+<h4 id="反射方法"><a href="#反射方法" class="headerlink" title="反射方法"></a>反射方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取User类的所有方法，返回ReflectionMethod数组</span><br><span class="line">$methods &#x3D; $refClass-&gt;getMethods(); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$methods 结果如下：</span><br><span class="line">Array (</span><br><span class="line">    [0] &#x3D;&gt; ReflectionMethod Object ( [name] &#x3D;&gt; __construct [class] &#x3D;&gt; User )</span><br><span class="line">    [1] &#x3D;&gt; ReflectionMethod Object ( [name] &#x3D;&gt; getUsername [class] &#x3D;&gt; User )</span><br><span class="line">    [2] &#x3D;&gt; ReflectionMethod Object ( [name] &#x3D;&gt; setUsername [class] &#x3D;&gt; User )</span><br><span class="line">    [3] &#x3D;&gt; ReflectionMethod Object ( [name] &#x3D;&gt; getPassword [class] &#x3D;&gt; User )</span><br><span class="line">    [4] &#x3D;&gt; ReflectionMethod Object ( [name] &#x3D;&gt; setPassowrd [class] &#x3D;&gt; User )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取User类的getUsername方法</span><br><span class="line">$method &#x3D; $refClass-&gt;getMethod(&#39;getUsername&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$method 结果如下：</span><br><span class="line">ReflectionMethod Object ( [name] &#x3D;&gt; getUsername [class] &#x3D;&gt; User )</span><br></pre></td></tr></table></figure>
+
+<h4 id="反射注释"><a href="#反射注释" class="headerlink" title="反射注释"></a>反射注释</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取User类的注释文档，即定义在类之前的注释</span><br><span class="line">$classComment &#x3D; $refClass-&gt;getDocComment(); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$classComment 结果如下：</span><br><span class="line">&#x2F;** * 用户相关类 *&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取User类中setPassowrd方法的注释</span><br><span class="line">$methodComment &#x3D; $refClass-&gt;getMethod(&#39;setPassowrd&#39;)-&gt;getDocComment();  </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$methodComment 结果如下：</span><br><span class="line">&#x2F;** * 设置密码 * @param string $password *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h4 id="反射实例化"><a href="#反射实例化" class="headerlink" title="反射实例化"></a>反射实例化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 从指定的参数创建一个新的类实例</span><br><span class="line">$instance &#x3D; $refClass-&gt;newInstance(&#39;admin&#39;, 123, &#39;***&#39;);  </span><br><span class="line">&#x2F;&#x2F;$instance 结果如下：</span><br><span class="line">User Object ( [username] &#x3D;&gt; admin [password:User:private] &#x3D;&gt; 123 )</span><br><span class="line">注意：虽然构造函数中是两个参数，但是newInstance方法接受可变数目的参数，用于传递到类的构造函数。 </span><br><span class="line"></span><br><span class="line">$params &#x3D; [&#39;xiaoming&#39;, &#39;asdfg&#39;];</span><br><span class="line">&#x2F;&#x2F;从给出的参数创建一个新的类实例</span><br><span class="line">$instance &#x3D; $refClass-&gt;newInstanceArgs($params); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$instance 结果如下：</span><br><span class="line">User Object ( [username] &#x3D;&gt; xiaoming [password:User:private] &#x3D;&gt; asdfg )</span><br></pre></td></tr></table></figure>
+
+<h4 id="访问、执行类的公有方法——public"><a href="#访问、执行类的公有方法——public" class="headerlink" title="访问、执行类的公有方法——public"></a>访问、执行类的公有方法——public</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;调用User类的实例调用setUsername方法设置用户名</span><br><span class="line">$instance-&gt;setUsername(&#39;admin_1&#39;); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;用User类的实例调用getUsername方法获取用户名</span><br><span class="line">$username &#x3D; $instance-&gt;getUsername(); </span><br><span class="line">&#x2F;&#x2F;输出 admin_1</span><br><span class="line">echo $username . &quot;\n&quot;; </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;也可以写成如下，通过反射类ReflectionProperty设置指定实例的username属性值</span><br><span class="line">$refClass-&gt;getProperty(&#39;username&#39;)-&gt;setValue($instance, &#39;admin_2&#39;); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;通过反射类ReflectionProperty获取username的属性值</span><br><span class="line">$username &#x3D; $refClass-&gt;getProperty(&#39;username&#39;)-&gt;getValue($instance); </span><br><span class="line">&#x2F;&#x2F;输出 admin_2</span><br><span class="line">echo $username . &quot;\n&quot;; </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 还可以写成如下，通过反射类ReflectionMethod调用指定实例的方法，并且传送参数</span><br><span class="line">$refClass-&gt;getMethod(&#39;setUsername&#39;)-&gt;invoke($instance, &#39;admin_3&#39;); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;通过反射类ReflectionMethod调用指定实例的方法</span><br><span class="line">$value &#x3D; $refClass-&gt;getMethod(&#39;getUsername&#39;)-&gt;invoke($instance); </span><br><span class="line">&#x2F;&#x2F;输出 admin_3</span><br><span class="line">echo $value . &quot;\n&quot;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="访问、执行类的非公有方法——private、protected"><a href="#访问、执行类的非公有方法——private、protected" class="headerlink" title="访问、执行类的非公有方法——private、protected"></a>访问、执行类的非公有方法——private、protected</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	&#x2F;&#x2F;ReflectionProperty Object ( [name] &#x3D;&gt; password [class] &#x3D;&gt; User )</span><br><span class="line">	$property &#x3D; $refClass-&gt;getProperty(&#39;password&#39;); </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;修改 $property 对象的可访问性</span><br><span class="line">    $property-&gt;setAccessible(true); </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;可以执行</span><br><span class="line">    $property-&gt;setValue($instance, &#39;987654321&#39;); </span><br><span class="line">    &#x2F;&#x2F;可以执行</span><br><span class="line">    $value &#x3D; $property-&gt;getValue($instance); </span><br><span class="line">    &#x2F;&#x2F;输出 987654321</span><br><span class="line">echo $value . &quot;\n&quot;;   </span><br><span class="line">&#125; catch (Exception $e)&#123;</span><br><span class="line">    echo $e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不管反射类中定义的属性、方法是否为 public，都可以获取到。<br>直接访问 protected 或则 private 的属性、方法，会抛出异常。<br>访问非公有成员需要调用指定的 ReflectionProperty 或 ReflectionMethod 对象 setAccessible(true)方法。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-07-07T12:56:54.958Z" itemprop="dateUpdated">2020-07-07 20:56:54</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://jasondcq.github.io">
+            <img src="/img/avatar.jpeg" alt="JasonD">
+            JasonD
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/&title=《PHP反射机制》 — Jason's Blog&pic=https://jasondcq.github.io/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/&title=《PHP反射机制》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP反射机制》 — Jason's Blog&url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/&via=https://jasondcq.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java基础之类与对象、封装、构造方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "BIeR4eIledNdUFDdBQgE9nIY-gzGzoHsz",
+            appKey: "TE41dCPOQ9DA96CE8FUPLBkl",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpeg" data-alipay="/img/alipay.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>JasonD &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/&title=《PHP反射机制》 — Jason's Blog&pic=https://jasondcq.github.io/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/&title=《PHP反射机制》 — Jason's Blog&source=丁昌乾的博客。选择大于努力，格局决定结局" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP反射机制》 — Jason's Blog&url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/&via=https://jasondcq.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jasondcq.github.io/PHP%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3aQU7EMAwFUO5/aZBYIUHL/3YDs3hdjYZOmpdKibH99hZf75/X189fr6v7Z3/d319feHh4eKOpX13feVePvJrE/Zj3i3U1h2TOeHh4eKd5yWEwe8wMkCzl/Zzx8PDwXoF3Ima/HzM/qPDw8PBek5eE15tf5SPg4eHhvQIvD4vbqd8/Pgmy80QGHh4e3t/wZgWw//18vL6Hh4eHN6qq59tucmzsYfU88fDw8A7wnk3Rzjb0PBxvi2F4eHh4J3gJKd/u8/TBrDDWNoTh4eHhneO1DVKztG8yfl6Wi56Ih4eHd5iXJyA2U9ynP4rDBg8PD+8Ab5OMaB+cT2vWdhB1RuDh4eGtebOE6f39D6x33AnwS9IEDw8P7xgvKVm16Yl9Gaw9ln74Hg8PD+8Ar93uo7LTYjnye4rXgIeHh3eAl2/NRSfXKMVQbPdtUI6Hh4d3gNf+OE8NtFv5vjxWvE88PDy8kpevwSzM3TdmtUdU9L8CHh4e3qO8+8nNilv5mHmoHY2Jh4eH9ye8WWJikwG4X+JZS0EUUuPh4eGNeG2yYNZqsG9jbUco3gkeHh7eiNe2WG029LZpIE89FE0DeHh4eGteEvK2m3KetM2X9YFAHw8PD2/Ny1OlRdkpTh889ZRf0rh4eHh4j/JmP2sbAvIAOhm5Dqzx8PDwDvA2rU75tNpgeh+g4+Hh4Z3jtU1XycadHyGzxcpDfzw8PLzTvCTIfiosbpMUq8w0Hh4e3kO89/KaTWKfsJgdSHh4eHgneLOS1aygVT/y2XYrPDw8vEd5+1A4KuGvA+hhmhgPDw/vGG+2KW8SwZtSXHE/Hh4e3svw8sJY3iKwuefSgoeHh/evvLpsP0pz3C9T+z0eHh7eOV7ecpps+m0yIpnPMJGBh4eHd4C3KUS1I+zbCI5U+fDw8PBS3gfoNmht3IrdCgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '丁昌乾的技术博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
